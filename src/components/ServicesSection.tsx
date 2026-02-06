@@ -34,7 +34,7 @@ export const ServicesSection = () => {
     margin: "-100px"
   });
   return <section id="services" className="relative py-20 bg-secondary/30 md:py-0">
-       <div className="section-container" ref={ref}>
+       <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
         opacity: 0,
@@ -45,11 +45,11 @@ export const ServicesSection = () => {
       } : {}} transition={{
         duration: 0.5
       }} className="text-center mb-16">
-           <span className="text-primary text-sm font-medium tracking-wider uppercase">
+           <span className="text-sm font-medium tracking-wider uppercase text-primary">
              How I Can Help
            </span>
            <h2 className="section-title mt-2">
-             My <span className="gradient-text">Services</span>
+             My <span className="gradient-text text-ring">Services</span>
            </h2>
            <p className="section-subtitle mx-auto mt-4">
              Comprehensive digital marketing solutions to elevate your online presence and drive measurable growth

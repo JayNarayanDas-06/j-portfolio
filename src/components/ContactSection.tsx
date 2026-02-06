@@ -33,7 +33,7 @@ export const ContactSection = () => {
     setTimeout(() => setIsSubmitted(false), 3000);
   };
   return <section id="contact" className="relative py-20 bg-secondary/30 md:py-0">
-       <div className="section-container" ref={ref}>
+       <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
         opacity: 0,
@@ -44,11 +44,11 @@ export const ContactSection = () => {
       } : {}} transition={{
         duration: 0.5
       }} className="text-center mb-16">
-           <span className="text-primary text-sm font-medium tracking-wider uppercase">
+           <span className="text-sm font-medium tracking-wider uppercase text-primary">
              Get In Touch
            </span>
            <h2 className="section-title mt-2">
-             Let's <span className="gradient-text">Connect</span>
+             Let's <span className="gradient-text text-ring">Connect</span>
            </h2>
            <p className="section-subtitle mx-auto mt-4">
              Have a project in mind? Let's discuss how I can help grow your digital presence.

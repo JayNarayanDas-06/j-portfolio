@@ -23,7 +23,7 @@ export const ExperienceSection = () => {
     margin: "-100px"
   });
   return <section id="experience" className="relative py-20 bg-secondary/30 md:py-0">
-       <div className="section-container" ref={ref}>
+       <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
         opacity: 0,
@@ -34,7 +34,7 @@ export const ExperienceSection = () => {
       } : {}} transition={{
         duration: 0.5
       }} className="text-center mb-16">
-           <span className="text-primary text-sm font-medium tracking-wider uppercase">
+           <span className="text-sm font-medium tracking-wider uppercase text-primary">
              My Journey
            </span>
            <h2 className="section-title mt-2">

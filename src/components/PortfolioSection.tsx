@@ -30,7 +30,7 @@ export const PortfolioSection = () => {
        {/* Background elements */}
        <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
        
-       <div className="section-container" ref={ref}>
+       <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
         opacity: 0,
@@ -41,11 +41,11 @@ export const PortfolioSection = () => {
       } : {}} transition={{
         duration: 0.5
       }} className="text-center mb-16">
-           <span className="text-primary text-sm font-medium tracking-wider uppercase">
+           <span className="text-sm font-medium tracking-wider uppercase text-primary">
              Featured Work
            </span>
            <h2 className="section-title mt-2">
-             My <span className="gradient-text">Portfolio</span>
+             My <span className="gradient-text text-ring">Portfolio</span>
            </h2>
            <p className="section-subtitle mx-auto mt-4">
              Real-world projects showcasing measurable results in SEO and digital marketing

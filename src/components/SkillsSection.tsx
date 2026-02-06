@@ -53,7 +53,7 @@ export const SkillsSection = () => {
        <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
  
-       <div className="section-container" ref={ref}>
+       <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
         opacity: 0,
@@ -64,7 +64,7 @@ export const SkillsSection = () => {
       } : {}} transition={{
         duration: 0.5
       }} className="text-center mb-16">
-           <span className="text-primary text-sm font-medium tracking-wider uppercase">
+           <span className="text-sm font-medium tracking-wider uppercase text-primary">
              What I Do Best
            </span>
            <h2 className="section-title mt-2">
