@@ -25,7 +25,7 @@ export const HeroSection = () => {
           }} transition={{
             duration: 0.5
           }} className="inline-flex">
-               <span className="availability-badge text-sm">
+               <span className="availability-badge text-sm bg-gray-300">
                  <span className="availability-dot" />
                  Available for new opportunities
                </span>
@@ -181,7 +181,7 @@ export const HeroSection = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }} className="absolute -top-4 right-10 p-3 rounded-xl bg-card border border-border shadow-lg">
-                 <TrendingUp className="w-6 h-6 text-primary" />
+                 <TrendingUp className="w-6 h-6 text-orange-500" />
                </motion.div>
                <motion.div animate={{
               y: [0, 10, 0]
@@ -191,7 +191,7 @@ export const HeroSection = () => {
               ease: "easeInOut",
               delay: 0.5
             }} className="absolute top-1/4 -left-4 p-3 rounded-xl bg-card border border-border shadow-lg">
-                 <Target className="w-6 h-6 text-accent-foreground" />
+                 <Target className="w-6 h-6 text-orange-500" />
                </motion.div>
                <motion.div animate={{
               y: [0, -8, 0]
@@ -201,7 +201,7 @@ export const HeroSection = () => {
               ease: "easeInOut",
               delay: 1
             }} className="absolute bottom-10 -right-4 p-3 rounded-xl bg-card border border-border shadow-lg">
-                 <Sparkles className="w-6 h-6 text-primary" />
+                 <Sparkles className="w-6 h-6 text-orange-500" />
                </motion.div>
              </div>
            </motion.div>
