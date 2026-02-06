@@ -57,7 +57,7 @@ export const HeroSection = () => {
             delay: 0.2
           }} className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-2">
                I AM{' '}
-               <span className="gradient-text">JAY</span>
+               <span className="gradient-text text-ring">JAY NARAYAN DAS </span>
              </motion.h1>
              <motion.h1 initial={{
             opacity: 0,
