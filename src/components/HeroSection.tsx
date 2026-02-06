@@ -119,7 +119,7 @@ export const HeroSection = () => {
             })}>
                  Explore Services
                </Button>
-               <Button variant="ghost" size="lg" className="rounded-full gap-2" onClick={() => document.getElementById('contact')?.scrollIntoView({
+               <Button variant="outline" size="lg" className="rounded-full gap-2 px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({
               behavior: 'smooth'
             })}>
                  Contact Me
