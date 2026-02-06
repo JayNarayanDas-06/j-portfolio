@@ -22,7 +22,7 @@ export const ExperienceSection = () => {
     once: true,
     margin: "-100px"
   });
-  return <section id="experience" className="relative py-20 bg-secondary/30 md:py-0">
+  return <section id="experience" className="relative py-20 bg-secondary/15 md:py-0">
        <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{

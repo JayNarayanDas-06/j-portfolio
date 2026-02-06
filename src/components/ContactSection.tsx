@@ -32,7 +32,7 @@ export const ContactSection = () => {
     // Reset form after delay
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-  return <section id="contact" className="relative py-20 bg-secondary/30 md:py-0">
+  return <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
        <div className="section-container py-[40px]" ref={ref}>
          {/* Section Header */}
          <motion.div initial={{
