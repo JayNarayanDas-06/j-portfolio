@@ -48,7 +48,7 @@ export const SkillsSection = () => {
     once: true,
     margin: "-100px"
   });
-  return <section id="skills" className="relative py-20 md:py-32 overflow-hidden">
+  return <section id="skills" className="relative py-20 overflow-hidden md:py-0">
        {/* Background elements */}
        <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
