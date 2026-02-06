@@ -70,7 +70,7 @@ export const ExperienceSection = () => {
                            Current
                          </span>}
                      </div>
-                     <p className="text-lg text-primary font-medium">{exp.company}</p>
+                     <p className="text-lg font-medium text-ring">{exp.company}</p>
                    </div>
                    <div className="flex flex-col gap-1 text-sm text-muted-foreground">
                      <div className="flex items-center gap-2">
