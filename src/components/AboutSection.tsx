@@ -63,7 +63,7 @@ export const AboutSection = () => {
           delay: 0.2
         }}>
              <h3 className="text-2xl font-semibold mb-6">
-               A Passionate <span className="text-primary">Digital Marketing</span> Professional
+               A Passionate <span className="text-ring">Digital Marketing</span> Professional
              </h3>
              <div className="space-y-4 text-muted-foreground leading-relaxed">
                <p>
@@ -90,7 +90,7 @@ export const AboutSection = () => {
                </div>
                <div className="p-4 rounded-xl bg-card border border-border">
                  <div className="text-sm text-muted-foreground">Email</div>
-                 <div className="font-medium text-primary">dassitun6@gmail.com</div>
+                 <div className="font-medium text-ring">dassitun6@gmail.com</div>
                </div>
              </div>
            </motion.div>
