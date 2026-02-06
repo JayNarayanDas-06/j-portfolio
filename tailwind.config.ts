@@ -168,7 +168,7 @@ export default {
   					transform: 'translateX(0)'
   				}
   			},
-  			'float': {
+  			float: {
   				'0%, 100%': {
   					transform: 'translateY(0)'
   				},
@@ -184,7 +184,7 @@ export default {
   					boxShadow: '0 0 30px -5px hsl(var(--primary) / 0.6)'
   				}
   			},
-  			'progress': {
+  			progress: {
   				'0%': {
   					width: '0%'
   				},
@@ -201,9 +201,9 @@ export default {
   			'scale-in': 'scale-in 0.4s ease-out forwards',
   			'slide-in-left': 'slide-in-left 0.6s ease-out forwards',
   			'slide-in-right': 'slide-in-right 0.6s ease-out forwards',
-  			'float': 'float 3s ease-in-out infinite',
+  			float: 'float 3s ease-in-out infinite',
   			'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
-  			'progress': 'progress 1s ease-out forwards'
+  			progress: 'progress 1s ease-out forwards'
   		},
   		boxShadow: {
   			'2xs': 'var(--shadow-2xs)',
