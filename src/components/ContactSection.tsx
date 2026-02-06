@@ -93,7 +93,7 @@ export const ContactSection = () => {
                </div>
              </div>
  
-             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20">
+             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/25 border border-primary/30">
                <p className="text-sm text-muted-foreground mb-2">Ready to elevate your digital presence?</p>
                <p className="font-medium">Let's create something amazing together!</p>
              </div>
