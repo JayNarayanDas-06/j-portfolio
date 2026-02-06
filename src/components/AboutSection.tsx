@@ -134,7 +134,7 @@ export const AboutSection = () => {
                        {edu.period}
                      </div>
                      <h4 className="font-semibold text-lg">{edu.degree}</h4>
-                     <p className="text-primary text-sm">{edu.field}</p>
+                     <p className="text-sm text-ring">{edu.field}</p>
                      <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
                      <div className="flex items-center gap-2 mt-3 text-sm">
                        <Award className="w-4 h-4 text-accent" />
