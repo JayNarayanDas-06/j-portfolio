@@ -59,18 +59,7 @@ export const HeroSection = () => {
                I AM{' '}
                <span className="gradient-text text-ring">JAY NARAYAN DAS </span>
              </motion.h1>
-             <motion.h1 initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: 0.25
-          }} className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6">
-               NARAYAN DAS
-             </motion.h1>
+             
  
              {/* Title */}
              <motion.div initial={{
@@ -83,8 +72,8 @@ export const HeroSection = () => {
             duration: 0.5,
             delay: 0.3
           }} className="flex flex-col md:flex-row items-center lg:items-start gap-2 md:gap-4 mb-6">
-               <span className="text-xl md:text-2xl font-semibold text-primary">
-                 SEO & SMM SPECIALIST
+               <span className="text-xl md:text-2xl font-semibold text-ring">
+                 SEO & SMM Specialist
                </span>
                <span className="hidden md:block text-muted-foreground">|</span>
                <span className="text-lg md:text-xl text-muted-foreground">
