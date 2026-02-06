@@ -76,8 +76,8 @@ export const HeroSection = () => {
                  SEO & SMM Specialist
                </span>
                <span className="hidden md:block text-muted-foreground">|</span>
-               <span className="text-lg md:text-xl text-muted-foreground">
-                 Digital Marketing Professional
+               <span className="text-lg text-muted-foreground md:text-2xl font-semibold">
+                 Digital Marketing Executive
                </span>
              </motion.div>
  
