@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Search, FileSearch, TrendingUp, BarChart3, Users, FileText, Lightbulb, LineChart, Target, Zap } from 'lucide-react';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 // ===== EDITABLE TEXT — Change any value below =====
 const sectionHeader = {
@@ -61,6 +62,7 @@ export const SkillsSection = () => {
           ))}
         </div>
       </div>
+      <ScrollDivider />
     </section>
   );
 };

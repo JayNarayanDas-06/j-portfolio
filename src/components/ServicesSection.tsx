@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Search, FileSearch, Globe, Share2, BarChart, PenTool, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 // ===== EDITABLE TEXT — Change any value below =====
 const sectionHeader = {
@@ -63,6 +64,7 @@ export const ServicesSection = () => {
           </Button>
         </motion.div>
       </div>
+      <ScrollDivider />
     </section>
   );
 };

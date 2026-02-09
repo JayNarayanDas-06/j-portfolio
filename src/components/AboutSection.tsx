@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Calendar, Award } from 'lucide-react';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 // ===== EDITABLE TEXT — Change any value below =====
 const sectionHeader = {
@@ -121,6 +122,7 @@ export const AboutSection = () => {
           </motion.div>
         </div>
       </div>
+      <ScrollDivider />
     </section>
   );
 };

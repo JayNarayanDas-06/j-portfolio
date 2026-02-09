@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 // ===== EDITABLE TEXT — Change any value below =====
 const sectionHeader = {
@@ -117,6 +118,7 @@ export const PortfolioSection = () => {
           </p>
         </motion.div>
       </div>
+      <ScrollDivider />
     </section>
   );
 };
