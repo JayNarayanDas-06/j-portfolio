@@ -22,7 +22,7 @@ const heroContent = {
     { value: '95%', label: 'Client Satisfaction' },
   ],
   profileAlt: 'Jay Narayan Das - SEO & SMM Specialist',
-  profileImage: '/lovable-uploads/f27382d1-3709-49a6-a3e8-4498b407f84f.png',
+  profileImage: '/lovable-uploads/jay-profile-new.png',
 };
 // ===== END EDITABLE TEXT =====
 
