@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, MapPin, Calendar, CheckCircle } from 'lucide-react';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 // ===== EDITABLE TEXT — Change any value below =====
 const sectionHeader = {
@@ -103,6 +104,7 @@ export const ExperienceSection = () => {
           ))}
         </div>
       </div>
+      <ScrollDivider />
     </section>
   );
 };
