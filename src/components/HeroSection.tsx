@@ -66,7 +66,7 @@ export const HeroSection = () => {
             duration: 0.5,
             delay: 0.3
           }} className="flex flex-col md:flex-row items-center lg:items-start gap-2 md:gap-4 mb-6">
-              <span className="text-xl md:text-2xl font-semibold text-ring">{h.title}</span>
+              
               
               <span className="text-lg text-muted-foreground md:text-2xl font-semibold text-center">{h.subtitle}</span>
             </motion.div>
