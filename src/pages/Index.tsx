@@ -7,6 +7,7 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { ScrollDivider } from '@/components/ScrollDivider';
 
 const Index = () => {
   return (
@@ -14,11 +15,17 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <ScrollDivider />
         <AboutSection />
+        <ScrollDivider />
         <ExperienceSection />
+        <ScrollDivider />
         <SkillsSection />
+        <ScrollDivider />
         <ServicesSection />
+        <ScrollDivider />
         <PortfolioSection />
+        <ScrollDivider />
         <ContactSection />
       </main>
       <Footer />
