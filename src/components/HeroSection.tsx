@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const heroContent = {
   badge: 'Available for new opportunities',
   greeting: 'Hey, there',
-  namePrefix: 'I AM',
+  namePrefix: '',
   name: 'JAY NARAYAN DAS',
   title: 'SEO & SMM Specialist',
   titleSeparator: '|',
@@ -55,7 +55,6 @@ export const HeroSection = () => {
 
             {/* Name */}
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-2">
-              {heroContent.namePrefix}{' '}
               <span className="gradient-text text-ring">{heroContent.name}</span>
             </motion.h1>
 
