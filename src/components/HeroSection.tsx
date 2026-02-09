@@ -67,8 +67,8 @@ export const HeroSection = () => {
             delay: 0.3
           }} className="flex flex-col md:flex-row items-center lg:items-start gap-2 md:gap-4 mb-6">
               <span className="text-xl md:text-2xl font-semibold text-ring">{h.title}</span>
-              <span className="hidden md:block text-muted-foreground">{h.titleSeparator}</span>
-              <span className="text-lg text-muted-foreground md:text-2xl font-semibold">{h.subtitle}</span>
+              
+              <span className="text-lg text-muted-foreground md:text-2xl font-semibold text-center">{h.subtitle}</span>
             </motion.div>
 
             <motion.p initial={{
