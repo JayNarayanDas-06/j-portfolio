@@ -4,26 +4,46 @@ import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe } from 'lucide
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
-
-const projectHighlightsMeta = [
-  { icon: Target, label: 'On-Page SEO', description: 'Full optimization' },
-  { icon: TrendingUp, label: 'Off-Page SEO', description: 'Link building' },
-  { icon: BarChart, label: 'Technical SEO', description: 'Site health' },
-  { icon: Users, label: 'SMM Strategy', description: 'Social growth' },
-];
-
+const projectHighlightsMeta = [{
+  icon: Target,
+  label: 'On-Page SEO',
+  description: 'Full optimization'
+}, {
+  icon: TrendingUp,
+  label: 'Off-Page SEO',
+  description: 'Link building'
+}, {
+  icon: BarChart,
+  label: 'Technical SEO',
+  description: 'Site health'
+}, {
+  icon: Users,
+  label: 'SMM Strategy',
+  description: 'Social growth'
+}];
 export const PortfolioSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { content } = useContent();
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px'
+  });
+  const {
+    content
+  } = useContent();
   const p = content.portfolio;
-
-  return (
-    <section id="portfolio" className="relative py-20 overflow-hidden md:py-0">
+  return <section id="portfolio" className="relative py-20 overflow-hidden md:py-0">
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="section-container py-[40px]" ref={ref}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.5
+      }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
           <h2 className="section-title mt-2">
             {p.title} <span className="gradient-text text-ring">{p.titleHighlight}</span>
@@ -31,7 +51,16 @@ export const PortfolioSection = () => {
           <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 }} className="max-w-5xl mx-auto">
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.5,
+        delay: 0.2
+      }} className="max-w-5xl mx-auto">
           <div className="rounded-2xl bg-card border border-border overflow-hidden card-hover">
             <div className="p-6 md:p-8 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -55,39 +84,61 @@ export const PortfolioSection = () => {
 
             <div className="p-6 md:p-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {projectHighlightsMeta.map((item, index) => (
-                  <motion.div key={item.label} initial={{ opacity: 0, scale: 0.9 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }} className="text-center p-4 rounded-xl bg-secondary/50 border border-border">
+                {projectHighlightsMeta.map((item, index) => <motion.div key={item.label} initial={{
+                opacity: 0,
+                scale: 0.9
+              }} animate={isInView ? {
+                opacity: 1,
+                scale: 1
+              } : {}} transition={{
+                duration: 0.3,
+                delay: 0.3 + index * 0.1
+              }} className="text-center p-4 rounded-xl border border-border bg-slate-200">
                     <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div className="font-semibold text-sm">{item.label}</div>
                     <div className="text-xs text-muted-foreground">{item.description}</div>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </div>
 
               <div>
                 <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
                 <div className="grid md:grid-cols-2 gap-3">
-                  {p.achievements.map((achievement, index) => (
-                    <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                  {p.achievements.map((achievement, index) => <motion.div key={index} initial={{
+                  opacity: 0,
+                  x: -20
+                }} animate={isInView ? {
+                  opacity: 1,
+                  x: 0
+                } : {}} transition={{
+                  duration: 0.3,
+                  delay: 0.5 + index * 0.1
+                }} className="flex items-start gap-3 p-3 rounded-lg bg-slate-200">
                       <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span className="text-muted-foreground">{achievement}</span>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.8 }} className="text-center mt-12">
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.5,
+        delay: 0.8
+      }} className="text-center mt-12">
           <p className="text-muted-foreground">
             {p.comingSoonText} <span className="text-primary">{p.comingSoonHighlight}</span>
           </p>
         </motion.div>
       </div>
       <ScrollDivider />
-    </section>
-  );
+    </section>;
 };
