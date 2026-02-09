@@ -6,21 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollDivider } from '@/components/ScrollDivider';
-
-// ===== EDITABLE TEXT — Change any value below =====
-const sectionHeader = {
-  label: 'Get In Touch',
-  title: "Let's",
-  titleHighlight: 'Connect',
-  subtitle: "Have a project in mind? Let's discuss how I can help grow your digital presence.",
-};
-
-const contactInfo = {
-  email: 'dassitun6@gmail.com',
-  location: 'Bhubaneswar, Odisha, India',
-  ctaLine1: 'Ready to elevate your digital presence?',
-  ctaLine2: "Let's create something amazing together!",
-};
+import { useContent } from '@/contexts/ContentContext';
 
 const formLabels = {
   name: 'Your Name',
@@ -36,18 +22,14 @@ const formLabels = {
   submittedButton: 'Message Sent!',
 };
 
-const toastContent = {
-  title: 'Message sent!',
-  description: "Thank you for reaching out. I'll get back to you soon.",
-};
-// ===== END EDITABLE TEXT =====
-
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
+  const { content } = useContent();
+  const c = content.contact;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,7 +37,7 @@ export const ContactSection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
-    toast({ title: toastContent.title, description: toastContent.description });
+    toast({ title: 'Message sent!', description: "Thank you for reaching out. I'll get back to you soon." });
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
@@ -63,11 +45,11 @@ export const ContactSection = () => {
     <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
       <div className="section-container py-[40px]" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
-          <span className="text-sm font-medium tracking-wider uppercase text-primary">{sectionHeader.label}</span>
+          <span className="text-sm font-medium tracking-wider uppercase text-primary">{c.label}</span>
           <h2 className="section-title mt-2">
-            {sectionHeader.title} <span className="gradient-text text-ring">{sectionHeader.titleHighlight}</span>
+            {c.title} <span className="gradient-text text-ring">{c.titleHighlight}</span>
           </h2>
-          <p className="section-subtitle mx-auto mt-4">{sectionHeader.subtitle}</p>
+          <p className="section-subtitle mx-auto mt-4">{c.subtitle}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
@@ -79,7 +61,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Email</div>
-                  <a href={`mailto:${contactInfo.email}`} className="font-medium text-primary hover:underline">{contactInfo.email}</a>
+                  <a href={`mailto:${c.email}`} className="font-medium text-primary hover:underline">{c.email}</a>
                 </div>
               </div>
             </div>
@@ -91,14 +73,14 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Location</div>
-                  <div className="font-medium">{contactInfo.location}</div>
+                  <div className="font-medium">{c.location}</div>
                 </div>
               </div>
             </div>
 
             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/25 border border-primary/30">
-              <p className="text-sm text-muted-foreground mb-2">{contactInfo.ctaLine1}</p>
-              <p className="font-medium">{contactInfo.ctaLine2}</p>
+              <p className="text-sm text-muted-foreground mb-2">{c.ctaLine1}</p>
+              <p className="font-medium">{c.ctaLine2}</p>
             </div>
           </motion.div>
 
