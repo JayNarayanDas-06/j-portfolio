@@ -1,17 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowUp, Mail, MapPin, Heart } from 'lucide-react';
-
-// ===== EDITABLE TEXT — Change any value below =====
-const footerContent = {
-  brandName: 'Jay',
-  brandDot: '.',
-  tagline: 'SEO & SMM Specialist focused on driving organic growth through technical SEO, data-driven insights, and strategic content optimization.',
-  email: 'dassitun6@gmail.com',
-  location: 'Bhubaneswar, Odisha, India',
-  copyright: 'Jay Narayan Das',
-  madeWithText: 'Made with',
-  backToTop: 'Back to Top',
-};
+import { useContent } from '@/contexts/ContentContext';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -22,9 +11,11 @@ const navLinks = [
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Contact', href: '#contact' },
 ];
-// ===== END EDITABLE TEXT =====
 
 export const Footer = () => {
+  const { content } = useContent();
+  const f = content.footer;
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -35,10 +26,10 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           <div>
             <a href="#home" className="font-display text-2xl font-semibold italic">
-              <span className="text-foreground">{footerContent.brandName}</span>
-              <span className="text-primary">{footerContent.brandDot}</span>
+              <span className="text-foreground">{f.brandName}</span>
+              <span className="text-primary">{f.brandDot}</span>
             </a>
-            <p className="text-muted-foreground mt-4 text-sm leading-relaxed">{footerContent.tagline}</p>
+            <p className="text-muted-foreground mt-4 text-sm leading-relaxed">{f.tagline}</p>
           </div>
 
           <div>
@@ -55,13 +46,13 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="space-y-3 text-sm">
-              <a href={`mailto:${footerContent.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <a href={`mailto:${f.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
-                {footerContent.email}
+                {f.email}
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                {footerContent.location}
+                {f.location}
               </div>
             </div>
           </div>
@@ -70,11 +61,11 @@ export const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              © {new Date().getFullYear()} {footerContent.copyright}. {footerContent.madeWithText}{' '}
+              © {new Date().getFullYear()} {f.copyright}. Made with{' '}
               <Heart className="w-4 h-4 text-primary fill-primary" />
             </p>
             <motion.button onClick={scrollToTop} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-              {footerContent.backToTop}
+              Back to Top
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                 <ArrowUp className="w-4 h-4 text-primary" />
               </div>
