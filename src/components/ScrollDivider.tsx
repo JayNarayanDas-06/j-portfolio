@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 export const ScrollDivider = () => {
-  return <div className="flex justify-center py-[10px]">
+  return <div className="flex justify-center py-[12px] px-0">
       <motion.div animate={{
       y: [0, 10, 0]
     }} transition={{
