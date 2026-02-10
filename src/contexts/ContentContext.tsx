@@ -132,6 +132,7 @@ export const defaultPortfolioContent = {
     'Developed strategic social media marketing campaigns',
     'Expanded digital reach through SEO-driven content',
   ],
+  portfolioImages: [] as string[],
   comingSoonText: 'More projects coming soon.',
   comingSoonHighlight: 'Stay tuned!',
 };
