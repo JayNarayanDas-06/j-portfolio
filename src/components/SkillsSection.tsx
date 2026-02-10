@@ -22,7 +22,7 @@ export const SkillsSection = () => {
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{s.label}</span>
           <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
             {s.title} <span className="gradient-text text-ring">{s.titleHighlight}</span>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '-30deg' }}>
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '45deg' }}>
               <Brain className="w-6 h-6 text-primary/60" />
             </motion.div>
           </h2>
