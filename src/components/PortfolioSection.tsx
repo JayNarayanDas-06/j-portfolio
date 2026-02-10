@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe, ChevronLeft, ChevronRight, Image, Briefcase } from 'lucide-react';
+import { ExternalLink, TrendingUp, Users, Target, BarChart, ChevronLeft, ChevronRight, Image, Briefcase } from 'lucide-react';
+import auditfilingFavicon from '@/assets/auditfiling-favicon.png';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
@@ -87,9 +88,9 @@ export const PortfolioSection = () => {
             <div className="p-6 md:p-8 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden border border-border">
-                    <Globe className="w-6 h-6 text-primary" />
-                  </div>
+                  <a href="https://www.auditfiling.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 overflow-hidden border border-border hover:opacity-80 transition-opacity">
+                    <img src={auditfilingFavicon} alt="AuditFiling" className="w-8 h-8 object-contain" />
+                  </a>
                   <div>
                     <span className="text-sm text-primary font-medium">{p.featuredProject.label}</span>
                     <h3 className="text-2xl md:text-3xl font-bold mt-1">{p.featuredProject.title}</h3>
