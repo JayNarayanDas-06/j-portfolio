@@ -37,7 +37,7 @@ export const AboutSection = () => {
           }} className="absolute -right-2 -top-4 z-10" style={{
             rotate: '45deg'
           }}>
-              <User className="w-6 h-6 text-primary/60 mx-[356px] mt-[20px] my-[15px]" />
+              <User className="w-6 h-6 text-primary/60 mx-[356px] my-[15px] mb-0 mt-[10px]" />
             </motion.div>
           </h2>
         </motion.div>
