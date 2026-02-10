@@ -36,7 +36,7 @@ export const ServicesSection = () => {
             repeat: Infinity,
             ease: 'easeInOut'
           }} className="absolute -right-2 -top-4 z-10" style={{
-            rotate: '45deg'
+            rotate: '20deg'
           }}>
               <Wrench className="w-6 h-6 text-primary/60 mx-[340px] my-[10px]" />
             </motion.div>
