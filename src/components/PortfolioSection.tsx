@@ -56,8 +56,11 @@ export const PortfolioSection = () => {
         duration: 0.5
       }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
-          <h2 className="section-title mt-2">
+          <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
             {p.title} <span className="gradient-text text-ring">{p.titleHighlight}</span>
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '-30deg' }}>
+              <Globe className="w-6 h-6 text-primary/60" />
+            </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
         </motion.div>
