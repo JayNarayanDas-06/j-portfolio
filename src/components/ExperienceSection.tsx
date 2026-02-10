@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, MapPin, Calendar, CheckCircle } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, CheckCircle, Award } from 'lucide-react';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
 
@@ -12,6 +12,9 @@ export const ExperienceSection = () => {
 
   return (
     <section id="experience" className="relative py-20 bg-secondary/15 md:py-0">
+      <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-8 right-8 p-3 rounded-xl bg-card border border-border shadow-lg z-10">
+        <Award className="w-6 h-6 text-blue-400" />
+      </motion.div>
       <div className="section-container py-[40px]" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{e.label}</span>
