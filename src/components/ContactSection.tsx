@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
-
 const formLabels = {
   name: 'Your Name',
   namePlaceholder: 'John Doe',
@@ -19,36 +18,58 @@ const formLabels = {
   messagePlaceholder: 'Tell me about your project...',
   submitButton: 'Send Message',
   submittingButton: 'Sending...',
-  submittedButton: 'Message Sent!',
+  submittedButton: 'Message Sent!'
 };
-
 export const ContactSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px'
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
-  const { content } = useContent();
+  const {
+    toast
+  } = useToast();
+  const {
+    content
+  } = useContent();
   const c = content.contact;
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
-    toast({ title: 'Message sent!', description: "Thank you for reaching out. I'll get back to you soon." });
+    toast({
+      title: 'Message sent!',
+      description: "Thank you for reaching out. I'll get back to you soon."
+    });
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-
-  return (
-    <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
+  return <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
       <div className="section-container py-[40px]" ref={ref}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.5
+      }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{c.label}</span>
           <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
-            {c.title} <span className="gradient-text text-ring">{c.titleHighlight}</span>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '45deg' }}>
+            {c.title} <span className="gradient-text text-ring mx-[5px]">{c.titleHighlight}</span>
+            <motion.div animate={{
+            y: [0, -10, 0]
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }} className="absolute -right-2 -top-4 z-10" style={{
+            rotate: '45deg'
+          }}>
               <MessageCircle className="w-6 h-6 text-primary/60" />
             </motion.div>
           </h2>
@@ -56,7 +77,16 @@ export const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 }} className="lg:col-span-2 space-y-6">
+          <motion.div initial={{
+          opacity: 0,
+          x: -30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.5,
+          delay: 0.2
+        }} className="lg:col-span-2 space-y-6">
             <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -87,7 +117,16 @@ export const ContactSection = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.3 }} className="lg:col-span-3">
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.5,
+          delay: 0.3
+        }} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="p-6 md:p-8 rounded-2xl bg-card border border-border space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -108,19 +147,12 @@ export const ContactSection = () => {
                 <Textarea id="message" name="message" placeholder={formLabels.messagePlaceholder} rows={5} required className="bg-secondary/50 resize-none" />
               </div>
               <Button type="submit" size="lg" className="w-full rounded-full gap-2" disabled={isSubmitting || isSubmitted}>
-                {isSubmitting ? (
-                  <><Loader2 className="w-4 h-4 animate-spin" />{formLabels.submittingButton}</>
-                ) : isSubmitted ? (
-                  <><CheckCircle className="w-4 h-4" />{formLabels.submittedButton}</>
-                ) : (
-                  <><Send className="w-4 h-4" />{formLabels.submitButton}</>
-                )}
+                {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" />{formLabels.submittingButton}</> : isSubmitted ? <><CheckCircle className="w-4 h-4" />{formLabels.submittedButton}</> : <><Send className="w-4 h-4" />{formLabels.submitButton}</>}
               </Button>
             </form>
           </motion.div>
         </div>
       </div>
       <ScrollDivider />
-    </section>
-  );
+    </section>;
 };

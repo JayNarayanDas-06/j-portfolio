@@ -57,7 +57,7 @@ export const PortfolioSection = () => {
       }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
           <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
-            {p.title} <span className="gradient-text text-ring">{p.titleHighlight}</span>
+            {p.title} <span className="gradient-text text-ring mx-[5px]">{p.titleHighlight}</span>
             <motion.div animate={{
             y: [0, -10, 0]
           }} transition={{
