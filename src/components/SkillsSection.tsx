@@ -41,7 +41,7 @@ export const SkillsSection = () => {
           }} className="absolute -right-2 -top-4 z-10" style={{
             rotate: '45deg'
           }}>
-              <Brain className="w-6 h-6 text-primary/60" />
+              <Brain className="w-6 h-6 text-primary/60 mx-[300px] my-[10px]" />
             </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{s.subtitle}</p>
