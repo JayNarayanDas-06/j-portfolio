@@ -38,7 +38,7 @@ export const ServicesSection = () => {
           }} className="absolute -right-2 -top-4 z-10" style={{
             rotate: '10deg'
           }}>
-              <Wrench className="w-6 h-6 text-primary/60 mx-[340px] my-[10px]" />
+              <Wrench className="w-6 h-6 text-ring mx-[340px] my-[10px]" />
             </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{s.subtitle}</p>
