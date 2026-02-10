@@ -18,7 +18,7 @@ export const AboutSection = () => {
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{a.label}</span>
           <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
             {a.title} <span className="gradient-text text-ring">{a.titleHighlight}</span>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '-30deg' }}>
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '45deg' }}>
               <User className="w-6 h-6 text-primary/60" />
             </motion.div>
           </h2>
