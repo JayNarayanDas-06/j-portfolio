@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe, ChevronLeft, ChevronRight, Image } from 'lucide-react';
+import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe, ChevronLeft, ChevronRight, Image, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
@@ -58,8 +58,16 @@ export const PortfolioSection = () => {
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
           <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
             {p.title} <span className="gradient-text text-ring">{p.titleHighlight}</span>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -right-2 -top-4 z-10" style={{ rotate: '45deg' }}>
-              <Globe className="w-6 h-6 text-primary/60" />
+            <motion.div animate={{
+            y: [0, -10, 0]
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }} className="absolute -right-2 -top-4 z-10" style={{
+            rotate: '-30deg'
+          }}>
+              <Briefcase className="w-6 h-6 text-primary/60" />
             </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
