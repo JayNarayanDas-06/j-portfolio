@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
-import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, TrendingUp, Users, Target, BarChart, Globe, ChevronLeft, ChevronRight, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
@@ -30,14 +30,15 @@ export const PortfolioSection = () => {
   const p = content.portfolio;
   const images = p.portfolioImages || [];
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (!showPreview || images.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [images.length, showPreview]);
 
   return <section id="portfolio" className="relative py-20 overflow-hidden md:py-0">
       <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
@@ -84,20 +85,37 @@ export const PortfolioSection = () => {
                   </motion.div>)}
               </div>
 
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
-                <div className="grid gap-3">
-                  {p.achievements.map((achievement, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{achievement}</span>
-                    </motion.div>)}
-                </div>
-              </div>
+              {!showPreview ? (
+                <>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {p.achievements.map((achievement, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                          <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <span className="text-muted-foreground">{achievement}</span>
+                        </motion.div>)}
+                    </div>
+                  </div>
 
-              {images.length > 0 && (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.6 }} className="mt-8">
-                  <h4 className="text-lg font-semibold mb-4">Project Preview</h4>
-                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video max-w-3xl mx-auto">
+                  {images.length > 0 && (
+                    <div className="flex justify-center mt-6">
+                      <Button variant="outline" className="rounded-full gap-2" onClick={() => { setShowPreview(true); setCurrentSlide(0); }}>
+                        Project Preview
+                        <Image className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-semibold">Project Preview</h4>
+                    <Button variant="outline" size="sm" className="rounded-full gap-2" onClick={() => setShowPreview(false)}>
+                      Key Achievements
+                      <ChevronLeft className="w-4 h-4" />
+                    </Button>
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
                     {images.map((img, i) => (
                       <img
                         key={i}
