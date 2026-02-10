@@ -132,7 +132,11 @@ export const defaultPortfolioContent = {
     'Developed strategic social media marketing campaigns',
     'Expanded digital reach through SEO-driven content',
   ],
-  portfolioImages: [] as string[],
+  portfolioImages: [
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80',
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+  ] as string[],
   comingSoonText: 'More projects coming soon.',
   comingSoonHighlight: 'Stay tuned!',
 };
