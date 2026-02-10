@@ -28,7 +28,14 @@ export const PortfolioSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { content } = useContent();
   const p = content.portfolio;
-  const images = p.portfolioImages || [];
+  const fallbackImages = [
+    'https://i.postimg.cc/GhfVRXHg/Company-Registration-in-Odisha-72.png',
+    'https://i.postimg.cc/qBbZc1Xz/Company-Registration-in-Odisha.png',
+    'https://i.postimg.cc/3xpSTYMw/FSSAI-Registration-in-Odisha(1).png',
+    'https://i.postimg.cc/q7x1Nwvp/FSSAI-Registration-in-Odisha(2).png',
+    'https://i.postimg.cc/SQvDYJkn/FSSAI-Registration-in-Odisha(3).png',
+  ];
+  const images = (p.portfolioImages && p.portfolioImages.length > 0) ? p.portfolioImages : fallbackImages;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
 
