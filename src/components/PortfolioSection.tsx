@@ -84,58 +84,56 @@ export const PortfolioSection = () => {
                   </motion.div>)}
               </div>
 
-              <div className={`grid ${images.length > 0 ? 'md:grid-cols-2' : 'grid-cols-1'} gap-6`}>
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
-                  <div className="grid gap-3">
-                    {p.achievements.map((achievement, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
-                        <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground">{achievement}</span>
-                      </motion.div>)}
-                  </div>
+              <div>
+                <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
+                <div className="grid gap-3">
+                  {p.achievements.map((achievement, index) => <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-muted-foreground">{achievement}</span>
+                    </motion.div>)}
                 </div>
-
-                {images.length > 0 && (
-                  <motion.div initial={{ opacity: 0, x: 20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.6 }}>
-                    <h4 className="text-lg font-semibold mb-4">Project Preview</h4>
-                    <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
-                      {images.map((img, i) => (
-                        <img
-                          key={i}
-                          src={img}
-                          alt={`Project preview ${i + 1}`}
-                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-                        />
-                      ))}
-                      {images.length > 1 && (
-                        <>
-                          <button
-                            onClick={() => setCurrentSlide(prev => (prev - 1 + images.length) % images.length)}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
-                          >
-                            <ChevronLeft className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => setCurrentSlide(prev => (prev + 1) % images.length)}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
-                          >
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
-                          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                            {images.map((_, i) => (
-                              <button
-                                key={i}
-                                onClick={() => setCurrentSlide(i)}
-                                className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary' : 'bg-foreground/30'}`}
-                              />
-                            ))}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
               </div>
+
+              {images.length > 0 && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.6 }} className="mt-8">
+                  <h4 className="text-lg font-semibold mb-4">Project Preview</h4>
+                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video max-w-3xl mx-auto">
+                    {images.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt={`Project preview ${i + 1}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                      />
+                    ))}
+                    {images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCurrentSlide(prev => (prev - 1 + images.length) % images.length)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => setCurrentSlide(prev => (prev + 1) % images.length)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                          {images.map((_, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setCurrentSlide(i)}
+                              className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary' : 'bg-foreground/30'}`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         </motion.div>
