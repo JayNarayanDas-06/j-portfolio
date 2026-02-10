@@ -146,11 +146,12 @@ export const PortfolioSection = () => {
                   </div>
 
                   {images.length > 0 && <div className="flex justify-center mt-6">
-                      <Button variant="outline" className="rounded-full gap-2" asChild>
-                        <a href={p.featuredProject.websiteUrl} target="_blank" rel="noopener noreferrer">
-                          {p.featuredProject.websiteLabel}
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
+                      <Button variant="outline" className="rounded-full gap-2" onClick={() => {
+                  setShowPreview(true);
+                  setCurrentSlide(0);
+                }}>
+                        Project Preview
+                        <Image className="w-4 h-4" />
                       </Button>
                     </div>}
                 </> : <motion.div initial={{
