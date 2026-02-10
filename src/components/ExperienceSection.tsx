@@ -22,7 +22,7 @@ export const ExperienceSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {e.experiences.map((exp, index) => (
+          {[...e.experiences].sort((a, b) => (a.current === b.current ? 0 : a.current ? 1 : -1)).map((exp, index) => (
             <motion.div key={index} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}>
               <div className="p-6 md:p-8 rounded-2xl bg-card border border-border card-hover h-full">
                 <div className="flex flex-col gap-4 mb-6">
