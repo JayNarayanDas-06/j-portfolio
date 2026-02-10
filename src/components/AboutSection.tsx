@@ -11,9 +11,9 @@ export const AboutSection = () => {
   const a = content.about;
 
   return (
-    <section id="about" className="relative py-20 overflow-hidden md:py-0">
+    <section id="about" className="relative py-20 md:py-0">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-8 right-8 p-3 rounded-xl bg-card border border-border shadow-lg z-10">
+      <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-12 right-12 p-3 rounded-xl bg-card border border-border shadow-lg z-10">
         <User className="w-6 h-6 text-blue-400" />
       </motion.div>
 
