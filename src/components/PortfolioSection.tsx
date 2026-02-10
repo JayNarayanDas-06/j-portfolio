@@ -96,12 +96,15 @@ export const PortfolioSection = () => {
                     <h3 className="text-2xl md:text-3xl font-bold mt-1">{p.featuredProject.title}</h3>
                   </div>
                 </div>
-                <Button variant="outline" className="rounded-full gap-2" asChild>
-                  <a href={p.featuredProject.websiteUrl} target="_blank" rel="noopener noreferrer">
-                    {p.featuredProject.websiteLabel}
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </Button>
+                {images.length > 0 && !showPreview && (
+                  <Button variant="outline" className="rounded-full gap-2" onClick={() => {
+                    setShowPreview(true);
+                    setCurrentSlide(0);
+                  }}>
+                    Project Preview
+                    <Image className="w-4 h-4" />
+                  </Button>
+                )}
               </div>
             </div>
 
@@ -145,15 +148,6 @@ export const PortfolioSection = () => {
                     </div>
                   </div>
 
-                  {images.length > 0 && <div className="flex justify-center mt-6">
-                      <Button variant="outline" className="rounded-full gap-2" onClick={() => {
-                  setShowPreview(true);
-                  setCurrentSlide(0);
-                }}>
-                        Project Preview
-                        <Image className="w-4 h-4" />
-                      </Button>
-                    </div>}
                 </> : <motion.div initial={{
               opacity: 0,
               y: 10
