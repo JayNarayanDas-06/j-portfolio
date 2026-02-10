@@ -68,7 +68,7 @@ export const ContactSection = () => {
             repeat: Infinity,
             ease: 'easeInOut'
           }} className="absolute -right-2 -top-4 z-10" style={{
-            rotate: '20deg'
+            rotate: '10deg'
           }}>
               <MessageCircle className="w-6 h-6 text-primary/60 mx-[320px] my-[10px]" />
             </motion.div>
