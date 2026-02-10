@@ -67,7 +67,7 @@ export const PortfolioSection = () => {
           }} className="absolute -right-2 -top-4 z-10" style={{
             rotate: '-30deg'
           }}>
-              <Briefcase className="w-6 h-6 text-primary/60" />
+              <Briefcase className="w-6 h-6 text-primary/60 mx-[340px] my-[10px]" />
             </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
