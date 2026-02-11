@@ -53,7 +53,7 @@ export const defaultExperienceContent = {
   experiences: [
     {
       title: 'Digital Marketing Executive',
-      company: 'CloudSat',
+      company: 'Cloudsat Pvt Ltd',
       location: 'Bhubaneswar, Odisha',
       period: 'April 2025 – Present',
       current: true,
