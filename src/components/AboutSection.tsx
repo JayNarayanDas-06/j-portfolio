@@ -104,7 +104,7 @@ export const AboutSection = () => {
                     </div>
                     <h4 className="font-semibold text-lg flex items-center gap-1">
                       {edu.degree} <span className="text-primary">| {edu.grade}</span>
-                      <Award className="w-4 h-4 text-ring" />
+                      <Award className="w-4 h-4" style={{ color: '#64748b' }} />
                     </h4>
                     <p className="text-sm text-ring">{edu.field}</p>
                     <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
