@@ -187,13 +187,22 @@ const defaultContent: SiteContent = {
 };
 
 const STORAGE_KEY = 'site-content';
+const CONTENT_VERSION_KEY = 'site-content-version';
+const CONTENT_VERSION = 2; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
+    const storedVersion = localStorage.getItem(CONTENT_VERSION_KEY);
+    if (storedVersion && Number(storedVersion) !== CONTENT_VERSION) {
+      // Version mismatch — clear old content so new defaults take effect
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.setItem(CONTENT_VERSION_KEY, String(CONTENT_VERSION));
+      return defaultContent;
+    }
+    localStorage.setItem(CONTENT_VERSION_KEY, String(CONTENT_VERSION));
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      // Deep merge with defaults to handle new fields
       return {
         hero: { ...defaultHeroContent, ...parsed.hero },
         about: { ...defaultAboutContent, ...parsed.about },
