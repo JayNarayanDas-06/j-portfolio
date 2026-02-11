@@ -20,7 +20,7 @@ export const PortfolioSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { content } = useContent();
   const p = content.portfolio;
-  const projects = p.projects;
+  const projects = p.projects || [];
 
   const [activeProject, setActiveProject] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
