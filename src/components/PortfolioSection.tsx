@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, TrendingUp, Users, Target, BarChart, ChevronLeft, ChevronRight, Image, Briefcase } from 'lucide-react';
 import auditfilingFavicon from '@/assets/auditfiling-favicon.png';
 import cloudsatIcon from '@/assets/cloudsat-icon.png';
-import i4optionIcon from '@/assets/i4option-icon.jpg';
+import i4optionIcon from '@/assets/i4option-icon.png';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { useContent } from '@/contexts/ContentContext';
