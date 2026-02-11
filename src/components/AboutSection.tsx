@@ -102,15 +102,12 @@ export const AboutSection = () => {
                       <Calendar className="w-4 h-4" />
                       {edu.period}
                     </div>
-                    <h4 className="font-semibold text-lg">
+                    <h4 className="font-semibold text-lg flex items-center gap-1">
                       {edu.degree} <span className="text-primary">| {edu.grade}</span>
+                      <Award className="w-4 h-4 text-ring" />
                     </h4>
                     <p className="text-sm text-ring">{edu.field}</p>
                     <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
-                    <div className="flex items-center gap-2 mt-3 text-sm">
-                      <span className="text-muted-foreground">{edu.grade}</span>
-                      <Award className="w-4 h-4 text-ring" />
-                    </div>
                   </div>
                 </motion.div>)}
             </div>
