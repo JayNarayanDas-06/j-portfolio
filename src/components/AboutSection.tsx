@@ -108,8 +108,8 @@ export const AboutSection = () => {
                     <p className="text-sm text-ring">{edu.field}</p>
                     <p className="text-muted-foreground text-sm mt-1">{edu.institution}</p>
                     <div className="flex items-center gap-2 mt-3 text-sm">
-                      <Award className="w-4 h-4 text-slate-600" />
-                      
+                      <span className="text-muted-foreground">{edu.grade}</span>
+                      <Award className="w-4 h-4 text-ring" />
                     </div>
                   </div>
                 </motion.div>)}
