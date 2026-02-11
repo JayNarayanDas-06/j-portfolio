@@ -120,25 +120,74 @@ export const defaultPortfolioContent = {
   title: 'My',
   titleHighlight: 'Portfolio',
   subtitle: 'Real-world projects showcasing measurable results in SEO and digital marketing',
-  featuredProject: {
-    label: 'Featured Case Study',
-    title: 'AuditFiling Website SEO & SMO',
-    websiteUrl: 'https://www.auditfiling.com/',
-    websiteLabel: 'Visit Website',
-  },
-  achievements: [
-    'Improved keyword rankings across targeted search terms',
-    'Increased user engagement and brand visibility',
-    'Developed strategic social media marketing campaigns',
-    'Expanded digital reach through SEO-driven content',
+  projects: [
+    {
+      id: 'auditfiling',
+      label: 'Featured Case Study',
+      title: 'AuditFiling Website SEO & SMO',
+      websiteUrl: 'https://www.auditfiling.com/',
+      icon: 'auditfiling',
+      highlights: [
+        { icon: 'Target', label: 'On-Page SEO', description: 'Full optimization' },
+        { icon: 'TrendingUp', label: 'Off-Page SEO', description: 'Link building' },
+        { icon: 'BarChart', label: 'Technical SEO', description: 'Site health' },
+        { icon: 'Users', label: 'SMM Strategy', description: 'Social growth' },
+      ],
+      achievements: [
+        'Improved keyword rankings across targeted search terms',
+        'Increased user engagement and brand visibility',
+        'Developed strategic social media marketing campaigns',
+        'Expanded digital reach through SEO-driven content',
+      ],
+      portfolioImages: [
+        'https://i.postimg.cc/GhfVRXHg/Company-Registration-in-Odisha-72.png',
+        'https://i.postimg.cc/qBbZc1Xz/Company-Registration-in-Odisha.png',
+        'https://i.postimg.cc/3xpSTYMw/FSSAI-Registration-in-Odisha(1).png',
+        'https://i.postimg.cc/q7x1Nwvp/FSSAI-Registration-in-Odisha(2).png',
+        'https://i.postimg.cc/SQvDYJkn/FSSAI-Registration-in-Odisha(3).png',
+      ],
+    },
+    {
+      id: 'cloudsat',
+      label: 'Featured Case Study',
+      title: 'Cloudsat Pvt Ltd – SMO & Content',
+      websiteUrl: '',
+      icon: 'cloudsat',
+      highlights: [
+        { icon: 'Users', label: 'SMO Strategy', description: 'Social media optimization' },
+        { icon: 'TrendingUp', label: 'Content Engagement', description: 'Audience growth' },
+        { icon: 'BarChart', label: 'Social Analytics', description: 'Performance tracking' },
+        { icon: 'Target', label: 'Brand Awareness', description: 'Digital presence' },
+      ],
+      achievements: [
+        'Created and managed engaging social media content across platforms',
+        'Boosted audience engagement through targeted SMO strategies',
+        'Developed creative content calendars aligned with brand identity',
+        'Increased social media reach and follower growth organically',
+      ],
+      portfolioImages: [] as string[],
+    },
+    {
+      id: 'i4option',
+      label: 'Featured Case Study',
+      title: 'i4Option Website SEO & Digital Marketing',
+      websiteUrl: '',
+      icon: 'i4option',
+      highlights: [
+        { icon: 'Target', label: 'On-Page SEO', description: 'Content optimization' },
+        { icon: 'TrendingUp', label: 'Off-Page SEO', description: 'Authority building' },
+        { icon: 'BarChart', label: 'Technical SEO', description: 'Performance audit' },
+        { icon: 'Users', label: 'Digital Strategy', description: 'Growth planning' },
+      ],
+      achievements: [
+        'Conducted comprehensive website SEO audits and optimizations',
+        'Enhanced search engine visibility through strategic keyword targeting',
+        'Built quality backlink profiles to strengthen domain authority',
+        'Delivered data-driven reports with actionable growth insights',
+      ],
+      portfolioImages: [] as string[],
+    },
   ],
-  portfolioImages: [
-    'https://i.postimg.cc/GhfVRXHg/Company-Registration-in-Odisha-72.png',
-    'https://i.postimg.cc/qBbZc1Xz/Company-Registration-in-Odisha.png',
-    'https://i.postimg.cc/3xpSTYMw/FSSAI-Registration-in-Odisha(1).png',
-    'https://i.postimg.cc/q7x1Nwvp/FSSAI-Registration-in-Odisha(2).png',
-    'https://i.postimg.cc/SQvDYJkn/FSSAI-Registration-in-Odisha(3).png',
-  ] as string[],
   comingSoonText: 'More projects coming soon.',
   comingSoonHighlight: 'Stay tuned!',
 };
@@ -188,7 +237,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 4; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 5; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {

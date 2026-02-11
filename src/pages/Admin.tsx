@@ -304,50 +304,7 @@ const Admin = () => {
             <Field label="Title Highlight" value={content.portfolio.titleHighlight} onChange={(v) => updateSection('portfolio', { titleHighlight: v })} />
           </div>
           <Field label="Subtitle" value={content.portfolio.subtitle} onChange={(v) => updateSection('portfolio', { subtitle: v })} multiline />
-          <h4 className="text-sm font-semibold mt-4">Featured Project</h4>
-          <div className="grid md:grid-cols-2 gap-4">
-            <Field label="Label" value={content.portfolio.featuredProject.label} onChange={(v) => updateSection('portfolio', { featuredProject: { ...content.portfolio.featuredProject, label: v } })} />
-            <Field label="Project Title" value={content.portfolio.featuredProject.title} onChange={(v) => updateSection('portfolio', { featuredProject: { ...content.portfolio.featuredProject, title: v } })} />
-            <Field label="Website URL" value={content.portfolio.featuredProject.websiteUrl} onChange={(v) => updateSection('portfolio', { featuredProject: { ...content.portfolio.featuredProject, websiteUrl: v } })} />
-            <Field label="Website Label" value={content.portfolio.featuredProject.websiteLabel} onChange={(v) => updateSection('portfolio', { featuredProject: { ...content.portfolio.featuredProject, websiteLabel: v } })} />
-          </div>
-          <h4 className="text-sm font-semibold mt-4">Achievements</h4>
-          {content.portfolio.achievements.map((a, i) => (
-            <div key={i} className="flex gap-2 items-center">
-              <Input value={a} onChange={(e) => {
-                const achievements = [...content.portfolio.achievements];
-                achievements[i] = e.target.value;
-                updateSection('portfolio', { achievements });
-              }} className="bg-secondary/50" />
-              <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" onClick={() => {
-                const achievements = content.portfolio.achievements.filter((_, idx) => idx !== i);
-                updateSection('portfolio', { achievements });
-              }}><Trash2 className="w-3 h-3 text-destructive" /></Button>
-            </div>
-          ))}
-          <Button variant="outline" size="sm" className="gap-2 mt-2" onClick={() => {
-            const achievements = [...content.portfolio.achievements, ''];
-            updateSection('portfolio', { achievements });
-          }}><Plus className="w-4 h-4" /> Add Achievement</Button>
-          <h4 className="text-sm font-semibold mt-4">Portfolio Images</h4>
-          <p className="text-xs text-muted-foreground">Add image URLs to show a sliding preview next to Key Achievements.</p>
-          {(content.portfolio.portfolioImages || []).map((img: string, i: number) => (
-            <div key={i} className="flex gap-2 items-center">
-              <Input value={img} onChange={(e) => {
-                const portfolioImages = [...(content.portfolio.portfolioImages || [])];
-                portfolioImages[i] = e.target.value;
-                updateSection('portfolio', { portfolioImages });
-              }} placeholder="Image URL" className="bg-secondary/50" />
-              <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0" onClick={() => {
-                const portfolioImages = (content.portfolio.portfolioImages || []).filter((_: string, idx: number) => idx !== i);
-                updateSection('portfolio', { portfolioImages });
-              }}><Trash2 className="w-3 h-3 text-destructive" /></Button>
-            </div>
-          ))}
-          <Button variant="outline" size="sm" className="gap-2 mt-2" onClick={() => {
-            const portfolioImages = [...(content.portfolio.portfolioImages || []), ''];
-            updateSection('portfolio', { portfolioImages });
-          }}><Plus className="w-4 h-4" /> Add Image</Button>
+          <p className="text-xs text-muted-foreground mb-2">Projects are managed in the content defaults. Use this section to edit top-level portfolio fields.</p>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <Field label="Coming Soon Text" value={content.portfolio.comingSoonText} onChange={(v) => updateSection('portfolio', { comingSoonText: v })} />
             <Field label="Coming Soon Highlight" value={content.portfolio.comingSoonHighlight} onChange={(v) => updateSection('portfolio', { comingSoonHighlight: v })} />
