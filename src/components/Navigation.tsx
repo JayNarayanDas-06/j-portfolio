@@ -4,7 +4,8 @@ import { Menu, X } from 'lucide-react';
 import linkedinIcon from '@/assets/linkedin-icon-32.webp';
 import instagramIcon from '@/assets/instagram-icon-32.webp';
 import xIcon from '@/assets/x-icon.ico';
- 
+
+
  const navLinks = [
    { name: 'Home', href: '#home' },
    { name: 'About', href: '#about' },
