@@ -67,10 +67,10 @@ export const ContactSection = () => {
             duration: 3,
             repeat: Infinity,
             ease: 'easeInOut'
-          }} className="absolute -right-2 -top-4 z-10" style={{
+          }} className="absolute -right-2 -top-4 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{
             rotate: '10deg'
           }}>
-              <MessageCircle className="w-6 h-6 text-ring mx-[320px] my-[10px]" />
+              <MessageCircle className="w-6 h-6 text-blue-400" />
             </motion.div>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{c.subtitle}</p>

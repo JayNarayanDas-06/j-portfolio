@@ -34,10 +34,10 @@ export const AboutSection = () => {
             duration: 3,
             repeat: Infinity,
             ease: 'easeInOut'
-          }} className="absolute -right-2 -top-4 z-10" style={{
+          }} className="absolute -right-2 -top-4 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{
             rotate: '45deg'
           }}>
-              <User className="w-6 h-6 text-ring my-[15px] mb-0 mt-[10px] ml-[350px] mx-[359px]" />
+              <User className="w-6 h-6 text-blue-400" />
             </motion.div>
           </h2>
         </motion.div>
