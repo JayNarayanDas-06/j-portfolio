@@ -14,7 +14,7 @@ export const ExperienceSection = () => {
   } = useContent();
   const e = content.experience;
   return <section id="experience" className="relative py-20 bg-secondary/15 md:py-0">
-      <div className="section-container py-[40px]" ref={ref}>
+      <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
         y: 30

@@ -19,7 +19,7 @@ export const SkillsSection = () => {
   return <section id="skills" className="relative py-20 md:py-0">
       <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="section-container py-[40px]" ref={ref}>
+      <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
         y: 30

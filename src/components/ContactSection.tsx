@@ -38,7 +38,7 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
     toast({
@@ -48,7 +48,7 @@ export const ContactSection = () => {
     setTimeout(() => setIsSubmitted(false), 3000);
   };
   return <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
-      <div className="section-container py-[40px]" ref={ref}>
+      <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
         y: 30
