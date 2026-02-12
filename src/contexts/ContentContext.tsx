@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 
 export const defaultHeroContent = {
   badge: 'Available for new opportunities',
-  greeting: 'Hey, there',
+  greeting: 'Hey, am',
   name: 'JAY NARAYAN DAS',
   title: 'SEO & SMM Specialist',
   titleSeparator: '|',
@@ -250,7 +250,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 7; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 8; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
