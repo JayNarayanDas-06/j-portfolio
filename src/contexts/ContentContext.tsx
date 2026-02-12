@@ -140,11 +140,19 @@ export const defaultPortfolioContent = {
         'Expanded digital reach through SEO-driven content',
       ],
       portfolioImages: [
-        'https://i.postimg.cc/GhfVRXHg/Company-Registration-in-Odisha-72.png',
-        'https://i.postimg.cc/qBbZc1Xz/Company-Registration-in-Odisha.png',
-        'https://i.postimg.cc/3xpSTYMw/FSSAI-Registration-in-Odisha(1).png',
-        'https://i.postimg.cc/q7x1Nwvp/FSSAI-Registration-in-Odisha(2).png',
-        'https://i.postimg.cc/SQvDYJkn/FSSAI-Registration-in-Odisha(3).png',
+        'https://i.postimg.cc/MGCFNNCR/Screenshot-2026-02-12-144513.png',
+        'https://i.postimg.cc/3J8bsgcN/Screenshot-2026-02-12-144538.png',
+        'https://i.postimg.cc/g0ZMV4xY/Screenshot-2026-02-12-144648.png',
+        'https://i.postimg.cc/vT3XYNN9/Screenshot-2026-02-12-144718.png',
+        'https://i.postimg.cc/K8KQbQrx/Screenshot-2026-02-12-144731.png',
+        'https://i.postimg.cc/rmT9ST6w/Screenshot-2026-02-12-144743.png',
+        'https://i.postimg.cc/W37w8yTb/Screenshot-2026-02-12-144755.png',
+        'https://i.postimg.cc/jjHHq1WL/Screenshot-2026-02-12-144803.png',
+        'https://i.postimg.cc/PxK1Y8QX/Screenshot-2026-02-12-144810.png',
+        'https://i.postimg.cc/FFWjK3Kc/Screenshot-2026-02-12-145000.png',
+        'https://i.postimg.cc/7Z77XRnm/Screenshot-2026-02-12-145039.png',
+        'https://i.postimg.cc/PxfwX5s9/Screenshot-2026-02-12-145045.png',
+        'https://i.postimg.cc/brWD90Gg/Screenshot-2026-02-12-145100.png',
       ],
     },
     {
@@ -250,7 +258,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 8; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 9; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
