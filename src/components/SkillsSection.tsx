@@ -38,8 +38,8 @@ export const SkillsSection = () => {
             duration: 3,
             repeat: Infinity,
             ease: 'easeInOut'
-          }} className="absolute -right-2 -top-4 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{
-            rotate: '90deg'
+          }} className="absolute -left-10 -top-2 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{
+            rotate: '45deg'
           }}>
               <Brain className="w-6 h-6 text-blue-400" />
             </motion.div>
