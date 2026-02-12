@@ -147,7 +147,7 @@ export const PortfolioSection = () => {
                   </div>
                   <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
                     {images.map((img, i) =>
-                  <img key={i} src={img} alt={`Project preview ${i + 1}`} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
+                  <img key={i} src={img} alt={`Project preview ${i + 1}`} className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
                   )}
                     {images.length > 1 &&
                   <>
