@@ -20,7 +20,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/admin" element={<AdminAuth><Admin /></AdminAuth>} />
+            {import.meta.env.DEV && <Route path="/admin" element={<AdminAuth><Admin /></AdminAuth>} />}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
