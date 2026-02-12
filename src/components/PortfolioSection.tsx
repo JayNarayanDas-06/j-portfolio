@@ -51,11 +51,11 @@ export const PortfolioSection = () => {
       <div className="section-container py-[40px]" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
-          <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
-            {p.title} <span className="gradient-text text-ring mx-[5px]">{p.titleHighlight}</span>
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-10 -top-2 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{ rotate: '20deg' }}>
+          <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
+            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
               <Briefcase className="w-6 h-6 text-blue-400" />
             </motion.div>
+            {p.title} <span className="gradient-text text-ring mx-[5px]">{p.titleHighlight}</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
         </motion.div>

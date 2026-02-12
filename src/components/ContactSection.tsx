@@ -59,19 +59,17 @@ export const ContactSection = () => {
         duration: 0.5
       }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{c.label}</span>
-          <h2 className="section-title mt-2 relative inline-flex items-center justify-center w-full">
-            {c.title} <span className="gradient-text text-ring mx-[5px]">{c.titleHighlight}</span>
+          <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
             <motion.div animate={{
-            y: [0, -10, 0]
+            y: [0, -6, 0]
           }} transition={{
             duration: 3,
             repeat: Infinity,
             ease: 'easeInOut'
-          }} className="absolute -left-10 -top-2 z-10 p-3 rounded-xl bg-card border border-border shadow-lg" style={{
-            rotate: '10deg'
-          }}>
+          }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
               <MessageCircle className="w-6 h-6 text-blue-400" />
             </motion.div>
+            {c.title} <span className="gradient-text text-ring mx-[5px]">{c.titleHighlight}</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">{c.subtitle}</p>
         </motion.div>
