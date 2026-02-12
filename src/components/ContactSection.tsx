@@ -74,7 +74,7 @@ export const ContactSection = () => {
           <p className="section-subtitle mx-auto mt-4">{c.subtitle}</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto items-end">
+        <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
           <motion.div initial={{
           opacity: 0,
           x: -30
@@ -142,7 +142,7 @@ export const ContactSection = () => {
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">{formLabels.message}</label>
-                <Textarea id="message" name="message" placeholder={formLabels.messagePlaceholder} rows={3} required className="bg-secondary/50 resize-none" />
+                <Textarea id="message" name="message" placeholder={formLabels.messagePlaceholder} rows={5} required className="bg-secondary/50 resize-none" />
               </div>
               <Button type="submit" size="lg" className="w-full rounded-full gap-2" disabled={isSubmitting || isSubmitted}>
                 {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" />{formLabels.submittingButton}</> : isSubmitted ? <><CheckCircle className="w-4 h-4" />{formLabels.submittedButton}</> : <><Send className="w-4 h-4" />{formLabels.submitButton}</>}
