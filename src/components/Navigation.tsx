@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import linkedinIcon from '@/assets/linkedin-icon-32.webp';
-import instagramIcon from '@/assets/instagram-icon-32.webp';
-import xIcon from '@/assets/x-icon.ico';
+import { LinkedInIcon, InstagramIcon, XIcon } from '@/components/SocialIcons';
  
  const navLinks = [
    { name: 'Home', href: '#home' },
@@ -95,15 +93,15 @@ import xIcon from '@/assets/x-icon.ico';
  
              {/* CTA Button */}
               <div className="hidden md:flex items-center gap-2">
-                <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                  <img src={linkedinIcon} alt="LinkedIn" className="w-4 h-4 rounded-sm" />
-                </a>
-                <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                  <img src={instagramIcon} alt="Instagram" className="w-4 h-4" />
-                </a>
-                <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                  <img src={xIcon} alt="X" className="w-4 h-4" />
-                </a>
+                 <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                   <LinkedInIcon className="w-4 h-4" />
+                 </a>
+                 <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                   <InstagramIcon className="w-4 h-4" />
+                 </a>
+                 <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                   <XIcon className="w-4 h-4" />
+                 </a>
               </div>
  
              {/* Mobile Menu Button */}
@@ -148,15 +146,15 @@ import xIcon from '@/assets/x-icon.ico';
                    </motion.a>
                  ))}
                   <div className="flex items-center gap-3 mt-4">
-                    <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                      <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5 rounded-sm" />
-                    </a>
-                    <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                      <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
-                    </a>
-                    <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                      <img src={xIcon} alt="X" className="w-5 h-5" />
-                    </a>
+                     <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                       <LinkedInIcon className="w-5 h-5" />
+                     </a>
+                     <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                       <InstagramIcon className="w-5 h-5" />
+                     </a>
+                     <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
+                       <XIcon className="w-5 h-5" />
+                     </a>
                   </div>
                </div>
              </div>

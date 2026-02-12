@@ -13,7 +13,7 @@ export const defaultHeroContent = {
   ctaPortfolio: 'View Portfolio',
   ctaServices: 'Explore Services',
   ctaContact: 'Contact Me',
-  profileImage: '/lovable-uploads/jay-profile-new.png?v=2',
+  profileImage: '/lovable-uploads/jay-profile-new.png?v=3',
   profileAlt: 'Jay Narayan Das - SEO & SMM Specialist',
   stats: [
     { value: '1+', label: 'Years Experience' },
