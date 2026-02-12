@@ -163,6 +163,13 @@ export const defaultPortfolioContent = {
         '/lovable-uploads/auditfiling-preview-8.png',
         '/lovable-uploads/auditfiling-preview-9.png',
         '/lovable-uploads/auditfiling-preview-10.png',
+        '/lovable-uploads/auditfiling-preview-11.png',
+        '/lovable-uploads/auditfiling-preview-12.png',
+        '/lovable-uploads/auditfiling-preview-13.png',
+        '/lovable-uploads/auditfiling-preview-14.png',
+        '/lovable-uploads/auditfiling-preview-15.png',
+        '/lovable-uploads/auditfiling-preview-16.png',
+        '/lovable-uploads/auditfiling-preview-17.png',
       ],
     },
     {
@@ -268,7 +275,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 11; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 12; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
