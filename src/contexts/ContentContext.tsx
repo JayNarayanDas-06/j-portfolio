@@ -258,7 +258,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 9; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 10; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
