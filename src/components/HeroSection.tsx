@@ -143,7 +143,7 @@ export const HeroSection = () => {
               <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-[glow-pulse_3s_ease-in-out_infinite]" />
               <div className="absolute inset-4 rounded-full border border-primary/10" />
               <div className="absolute inset-8 rounded-full overflow-hidden glow">
-                <img alt={h.profileAlt} className="w-full h-full object-cover" src={h.profileImage} />
+                <img alt={h.profileAlt} className="w-full h-full object-cover" src={h.profileImage} width={450} height={450} fetchPriority="high" />
               </div>
               <motion.div animate={{
               y: [0, -10, 0]
