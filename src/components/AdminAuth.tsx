@@ -17,7 +17,7 @@ interface AdminAuthProps {
 }
 
 const AdminAuth = ({ children }: AdminAuthProps) => {
-  const [authenticated, setAuthenticated] = useState(() => sessionStorage.getItem('admin-auth') === 'true');
+  const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +29,6 @@ const AdminAuth = ({ children }: AdminAuthProps) => {
     setError('');
     const hash = await sha256(password);
     if (hash === ADMIN_PASS_HASH) {
-      sessionStorage.setItem('admin-auth', 'true');
       setAuthenticated(true);
     } else {
       setError('Incorrect password');
