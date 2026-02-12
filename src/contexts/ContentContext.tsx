@@ -165,7 +165,20 @@ export const defaultPortfolioContent = {
         'Developed creative content calendars aligned with brand identity',
         'Increased social media reach and follower growth organically',
       ],
-      portfolioImages: [] as string[],
+      portfolioImages: [
+        'https://i.postimg.cc/8zBc7gHD/Screenshot-2026-02-12-145706.png',
+        'https://i.postimg.cc/hGDjxZyQ/Screenshot-2026-02-12-145718.png',
+        'https://i.postimg.cc/G29mg81d/Screenshot-2026-02-12-145730.png',
+        'https://i.postimg.cc/QtPx28X0/Screenshot-2026-02-12-145754.png',
+        'https://i.postimg.cc/DfHg7H5c/Screenshot-2026-02-12-145805.png',
+        'https://i.postimg.cc/Ls9kyp6J/Screenshot-2026-02-12-150245.png',
+        'https://i.postimg.cc/rmz1kNr5/Screenshot-2026-02-12-150253.png',
+        'https://i.postimg.cc/fLFxTS7t/Screenshot-2026-02-12-150258.png',
+        'https://i.postimg.cc/1XqDgRMC/Screenshot-2026-02-12-150303.png',
+        'https://i.postimg.cc/cLmwtb7j/Screenshot-2026-02-12-150308.png',
+        'https://i.postimg.cc/3wxpXFn0/Screenshot-2026-02-12-150312.png',
+        'https://i.postimg.cc/KzKMVc6W/Screenshot-2026-02-12-150319.png',
+      ],
     },
     {
       id: 'i4option',
@@ -237,7 +250,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 6; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 7; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
