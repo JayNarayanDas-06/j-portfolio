@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, TrendingUp, Users, Target, BarChart, ChevronLeft, ChevronRight, Image, Briefcase } from 'lucide-react';
-import auditfilingFavicon from '@/assets/auditfiling-favicon.png';
+import auditfilingFavicon from '@/assets/auditfiling-favicon-40.webp';
 import cloudsatIcon from '@/assets/cloudsat-icon.png';
 import i4optionIcon from '@/assets/i4option-icon.png';
 import { Button } from '@/components/ui/button';
