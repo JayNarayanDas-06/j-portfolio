@@ -41,7 +41,7 @@ export const defaultAboutContent = {
   education: [
     { degree: 'Bachelor of Technology (BTech)', field: 'Computer Science and Engineering', institution: 'Nalanda Institute of Technology (NIT), Bhubaneswar', period: 'Nov 2021 – Jun 2024', grade: 'CGPA: 7.5' },
     { degree: 'Diploma', field: 'Mechanical Engineering', institution: 'Bhubanananda Odisha School of Engineering (BOSE), Cuttack', period: '2017 – 2021', grade: 'CGPA: 7.6' },
-    { degree: 'Matriculation', field: 'CBSE', institution: 'Santanu English Medium School', period: 'May 2012 – May 2017', grade: 'CGPA: 9.2' },
+    { degree: 'Matriculation', field: 'CBSE', institution: 'Santanu English Medium School', period: '2017', grade: 'CGPA: 9.2' },
   ],
 };
 
