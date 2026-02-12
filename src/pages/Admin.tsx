@@ -21,16 +21,26 @@ const sectionLabels: Record<SectionKey, string> = {
   footer: '📄 Footer',
 };
 
-const Field = ({ label, value, onChange, multiline = false }: { label: string; value: string; onChange: (v: string) => void; multiline?: boolean }) => (
-  <div className="space-y-1.5">
-    <label className="text-sm font-medium text-muted-foreground">{label}</label>
-    {multiline ? (
-      <Textarea value={value} onChange={(e) => onChange(e.target.value)} className="bg-secondary/50" rows={3} />
-    ) : (
-      <Input value={value} onChange={(e) => onChange(e.target.value)} className="bg-secondary/50" />
-    )}
-  </div>
-);
+const MAX_SHORT = 100;
+const MAX_MEDIUM = 255;
+const MAX_LONG = 1000;
+const MAX_URL = 500;
+
+const Field = ({ label, value, onChange, multiline = false, maxLength }: { label: string; value: string; onChange: (v: string) => void; multiline?: boolean; maxLength?: number }) => {
+  const limit = maxLength ?? (multiline ? MAX_LONG : MAX_SHORT);
+  const trimmed = (v: string) => v.slice(0, limit);
+  return (
+    <div className="space-y-1.5">
+      <label className="text-sm font-medium text-muted-foreground">{label}</label>
+      {multiline ? (
+        <Textarea value={value} onChange={(e) => onChange(trimmed(e.target.value))} className="bg-secondary/50" rows={3} maxLength={limit} />
+      ) : (
+        <Input value={value} onChange={(e) => onChange(trimmed(e.target.value))} className="bg-secondary/50" maxLength={limit} />
+      )}
+      <span className="text-xs text-muted-foreground">{value.length}/{limit}</span>
+    </div>
+  );
+};
 
 const Admin = () => {
   const { content, updateSection, resetSection, resetAll } = useContent();
@@ -94,7 +104,7 @@ const Admin = () => {
             <Field label="Name" value={content.hero.name} onChange={(v) => updateSection('hero', { name: v })} />
             <Field label="Title" value={content.hero.title} onChange={(v) => updateSection('hero', { title: v })} />
             <Field label="Subtitle" value={content.hero.subtitle} onChange={(v) => updateSection('hero', { subtitle: v })} />
-            <Field label="Profile Image URL" value={content.hero.profileImage} onChange={(v) => updateSection('hero', { profileImage: v })} />
+            <Field label="Profile Image URL" value={content.hero.profileImage} onChange={(v) => updateSection('hero', { profileImage: v })} maxLength={MAX_URL} />
           </div>
           <Field label="Description" value={content.hero.description} onChange={(v) => updateSection('hero', { description: v })} multiline />
           <div className="grid md:grid-cols-2 gap-4">
