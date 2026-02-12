@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowUp, Mail, MapPin, Heart } from 'lucide-react';
 import { useContent } from '@/contexts/ContentContext';
-import { LinkedInIcon, InstagramIcon, XIcon } from '@/components/SocialIcons';
+import linkedinIcon from '@/assets/linkedin-icon.png';
+import instagramIcon from '@/assets/instagram-icon.png';
+import xIcon from '@/assets/x-icon.ico';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -66,14 +68,14 @@ export const Footer = () => {
               <Heart className="w-4 h-4 text-primary fill-primary" />
             </p>
             <div className="flex items-center gap-3">
-              <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
-                <LinkedInIcon className="w-5 h-5" />
+              <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5 rounded-sm" />
               </a>
-              <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
-                <InstagramIcon className="w-5 h-5" />
+              <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
               </a>
-              <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" aria-label="X" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform text-muted-foreground hover:text-primary">
-                <XIcon className="w-5 h-5" />
+              <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                <img src={xIcon} alt="X" className="w-5 h-5" />
               </a>
             </div>
             <motion.button onClick={scrollToTop} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
