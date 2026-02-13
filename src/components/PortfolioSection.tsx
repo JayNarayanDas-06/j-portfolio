@@ -47,7 +47,7 @@ export const PortfolioSection = () => {
 
   return (
     <section id="portfolio" className="relative py-20 overflow-hidden md:py-0">
-      <SectionBackground />
+      <SectionBackground variant="waves" />
 
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">

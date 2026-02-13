@@ -18,7 +18,7 @@ export const SkillsSection = () => {
   } = useContent();
   const s = content.skills;
   return <section id="skills" className="relative py-20 md:py-0">
-      <SectionBackground />
+      <SectionBackground variant="dots" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,

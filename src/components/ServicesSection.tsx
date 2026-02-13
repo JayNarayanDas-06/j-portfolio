@@ -17,7 +17,7 @@ export const ServicesSection = () => {
   } = useContent();
   const s = content.services;
   return <section id="services" className="relative py-20 bg-secondary/30 md:py-0">
-      <SectionBackground />
+      <SectionBackground variant="rings" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,

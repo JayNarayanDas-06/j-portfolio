@@ -49,7 +49,7 @@ export const ContactSection = () => {
     setTimeout(() => setIsSubmitted(false), 3000);
   };
   return <section id="contact" className="relative py-20 bg-secondary/15 md:py-0">
-      <SectionBackground />
+      <SectionBackground variant="orbs" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
