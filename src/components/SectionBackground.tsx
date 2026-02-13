@@ -154,7 +154,7 @@ interface SectionBackgroundProps {
 export const SectionBackground = ({ variant }: SectionBackgroundProps) => {
   const Component = variants[variant];
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
       <Component />
     </div>
   );
