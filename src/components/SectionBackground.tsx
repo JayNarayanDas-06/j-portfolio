@@ -45,13 +45,13 @@ const GridPattern = () => (
 );
 
 const FloatingDots = () => {
-  const dots = Array.from({ length: 12 }, (_, i) => ({
+  const dots = Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    size: 4 + (i % 4) * 3,
-    x: 5 + (i * 8) % 90,
-    y: 10 + (i * 17) % 80,
-    duration: 6 + i * 1.5,
-    delay: i * 0.3,
+    size: 2 + (i % 3) * 2,
+    x: 3 + (i * 5) % 94,
+    y: 5 + (i * 13) % 90,
+    duration: 8 + i * 0.8,
+    delay: i * 0.5,
   }));
 
   return (
@@ -59,12 +59,24 @@ const FloatingDots = () => {
       {dots.map((dot) => (
         <motion.div
           key={dot.id}
-          className="absolute rounded-full bg-primary/30"
+          className="absolute rounded-full bg-primary/10"
           style={{ width: dot.size, height: dot.size, left: `${dot.x}%`, top: `${dot.y}%` }}
-          animate={{ y: [0, -25, 0], opacity: [0.2, 0.8, 0.2], scale: [1, 1.5, 1] }}
+          animate={{ y: [0, -15, 0], opacity: [0.05, 0.25, 0.05] }}
           transition={{ duration: dot.duration, repeat: Infinity, ease: 'easeInOut', delay: dot.delay }}
         />
       ))}
+      <motion.div
+        className="absolute w-64 h-64 rounded-full bg-primary/8 blur-3xl"
+        animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ top: '20%', left: '10%' }}
+      />
+      <motion.div
+        className="absolute w-48 h-48 rounded-full bg-ring/8 blur-3xl"
+        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ bottom: '15%', right: '10%' }}
+      />
     </>
   );
 };
