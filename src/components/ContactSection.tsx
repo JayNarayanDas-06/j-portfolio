@@ -50,7 +50,7 @@ export const ContactSection = () => {
   };
   return <section id="contact" className="relative py-20 bg-secondary/20 md:py-0">
       <SectionBackground variant="waves" />
-      <div className="section-container py-[40px] pb-0" ref={ref}>
+      <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
         <motion.div initial={{
         opacity: 0,
         y: 30

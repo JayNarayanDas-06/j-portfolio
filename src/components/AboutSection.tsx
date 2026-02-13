@@ -16,7 +16,7 @@ export const AboutSection = () => {
   const a = content.about;
   return <section id="about" className="relative py-20 md:py-0">
       <SectionBackground variant="waves" />
-      <div className="section-container py-[40px] pb-0" ref={ref}>
+      <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
         <motion.div initial={{
         opacity: 0,
         y: 30
