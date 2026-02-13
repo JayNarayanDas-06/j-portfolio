@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Search, FileSearch, TrendingUp, BarChart3, Users, FileText, Lightbulb, LineChart, Target, Zap, Brain } from 'lucide-react';
 import { ScrollDivider } from '@/components/ScrollDivider';
+import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 
 // Default icons mapped by index
@@ -17,8 +18,7 @@ export const SkillsSection = () => {
   } = useContent();
   const s = content.skills;
   return <section id="skills" className="relative py-20 md:py-0">
-      <div className="absolute top-0 right-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <SectionBackground variant="dots" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,

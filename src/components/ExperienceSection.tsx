@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, MapPin, Calendar, CheckCircle, Award } from 'lucide-react';
 import { ScrollDivider } from '@/components/ScrollDivider';
+import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 export const ExperienceSection = () => {
   const ref = useRef(null);
@@ -14,6 +15,7 @@ export const ExperienceSection = () => {
   } = useContent();
   const e = content.experience;
   return <section id="experience" className="relative py-20 bg-secondary/15 md:py-0">
+      <SectionBackground variant="grid" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
