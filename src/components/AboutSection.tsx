@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Calendar, Award, User } from 'lucide-react';
 import { ScrollDivider } from '@/components/ScrollDivider';
+import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -14,7 +15,7 @@ export const AboutSection = () => {
   } = useContent();
   const a = content.about;
   return <section id="about" className="relative py-20 md:py-0">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <SectionBackground variant="orbs" />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,

@@ -6,6 +6,7 @@ import cloudsatIcon from '@/assets/cloudsat-icon.png';
 import i4optionIcon from '@/assets/i4option-icon.png';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
+import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 
 const iconMap: Record<string, React.ElementType> = { Target, TrendingUp, BarChart, Users };
@@ -46,7 +47,7 @@ export const PortfolioSection = () => {
 
   return (
     <section id="portfolio" className="relative py-20 overflow-hidden md:py-0">
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      <SectionBackground variant="waves" />
 
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
