@@ -15,7 +15,7 @@ export const AboutSection = () => {
   } = useContent();
   const a = content.about;
   return <section id="about" className="relative py-20 md:py-0">
-      <SectionBackground variant="orbs" />
+      <SectionBackground />
       <div className="section-container py-[40px] pb-0" ref={ref}>
         <motion.div initial={{
         opacity: 0,
