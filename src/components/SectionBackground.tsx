@@ -121,21 +121,6 @@ const WaveLine = () => (
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
     </svg>
-    <svg className="absolute top-0 w-full h-32 opacity-[0.08] rotate-180" viewBox="0 0 1440 200" preserveAspectRatio="none">
-      <motion.path
-        d="M0,120 C360,60 720,150 1080,90 L1440,120 L1440,200 L0,200 Z"
-        fill="currentColor"
-        className="text-ring"
-        animate={{
-          d: [
-            'M0,120 C360,60 720,150 1080,90 L1440,120 L1440,200 L0,200 Z',
-            'M0,80 C360,140 720,60 1080,130 L1440,90 L1440,200 L0,200 Z',
-            'M0,120 C360,60 720,150 1080,90 L1440,120 L1440,200 L0,200 Z',
-          ],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-      />
-    </svg>
   </div>
 );
 
