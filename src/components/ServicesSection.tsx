@@ -7,16 +7,29 @@ import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 import { Separator } from '@/components/ui/separator';
 
-// Local imports for logos not available on SimpleIcons CDN
-import ahrefsLogo from '@/assets/tools/ahrefs.svg';
-import mozLogo from '@/assets/tools/moz.svg';
-import screamingfrogLogo from '@/assets/tools/screamingfrog.svg';
-import openaiLogo from '@/assets/tools/openai.svg';
-import canvaLogo from '@/assets/tools/canva.svg';
-import adobeLogo from '@/assets/tools/adobe.svg';
-import microsoftLogo from '@/assets/tools/microsoft.svg';
+// Local PNG imports for all tool logos (64px favicons)
+import ahrefsLogo from '@/assets/tools/ahrefs.png';
+import mozLogo from '@/assets/tools/moz.png';
+import screamingfrogLogo from '@/assets/tools/screamingfrog.png';
+import openaiLogo from '@/assets/tools/openai.png';
+import canvaLogo from '@/assets/tools/canva.png';
+import adobeLogo from '@/assets/tools/adobe.png';
+import microsoftLogo from '@/assets/tools/microsoft.png';
+import gscLogo from '@/assets/tools/googlesearchconsole.png';
+import gaLogo from '@/assets/tools/googleanalytics.png';
+import geminiLogo from '@/assets/tools/googlegemini.png';
+import semrushLogo from '@/assets/tools/semrush.png';
+import googleLogo from '@/assets/tools/google.png';
+import metaLogo from '@/assets/tools/meta.png';
+import bufferLogo from '@/assets/tools/buffer.png';
+import hootsuiteLogo from '@/assets/tools/hootsuite.png';
+import notionLogo from '@/assets/tools/notion.png';
+import hubspotLogo from '@/assets/tools/hubspot.png';
+import anthropicLogo from '@/assets/tools/anthropic.png';
+import perplexityLogo from '@/assets/tools/perplexity.png';
+import elevenlabsLogo from '@/assets/tools/elevenlabs.png';
 
-// Map slugs to local imports for logos that fail on CDN
+// Map all slugs to local PNG imports
 const localLogos: Record<string, string> = {
   ahrefs: ahrefsLogo,
   moz: mozLogo,
@@ -25,6 +38,19 @@ const localLogos: Record<string, string> = {
   canva: canvaLogo,
   adobe: adobeLogo,
   microsoft365: microsoftLogo,
+  googlesearchconsole: gscLogo,
+  googleanalytics: gaLogo,
+  googlegemini: geminiLogo,
+  semrush: semrushLogo,
+  google: googleLogo,
+  meta: metaLogo,
+  buffer: bufferLogo,
+  hootsuite: hootsuiteLogo,
+  notion: notionLogo,
+  hubspot: hubspotLogo,
+  anthropic: anthropicLogo,
+  perplexity: perplexityLogo,
+  elevenlabs: elevenlabsLogo,
 };
 
 const serviceIcons = [FileSearch, Search, Globe, Share2, PenTool, BarChart];
