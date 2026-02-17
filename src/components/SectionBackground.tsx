@@ -106,19 +106,64 @@ const PulsingRings = () => (
 
 const WaveLine = () => (
   <div className="absolute inset-0 overflow-hidden">
-    <svg className="absolute bottom-0 w-full h-48 opacity-[0.12]" viewBox="0 0 1440 200" preserveAspectRatio="none">
+    {/* Deep back wave */}
+    <svg className="absolute bottom-0 w-full h-56 opacity-[0.06]" viewBox="0 0 1440 320" preserveAspectRatio="none">
       <motion.path
-        d="M0,100 C360,150 720,50 1080,100 C1260,125 1350,75 1440,100 L1440,200 L0,200 Z"
         fill="currentColor"
         className="text-primary"
         animate={{
           d: [
-            'M0,100 C360,160 720,40 1080,100 C1260,130 1350,70 1440,100 L1440,200 L0,200 Z',
-            'M0,130 C360,60 720,160 1080,70 C1260,55 1350,140 1440,100 L1440,200 L0,200 Z',
-            'M0,100 C360,160 720,40 1080,100 C1260,130 1350,70 1440,100 L1440,200 L0,200 Z',
+            'M0,224 C120,200 240,260 360,240 C480,220 600,180 720,192 C840,204 960,260 1080,256 C1200,252 1320,200 1440,208 L1440,320 L0,320 Z',
+            'M0,240 C120,260 240,200 360,220 C480,240 600,260 720,248 C840,236 960,200 1080,212 C1200,224 1320,260 1440,240 L1440,320 L0,320 Z',
+            'M0,224 C120,200 240,260 360,240 C480,220 600,180 720,192 C840,204 960,260 1080,256 C1200,252 1320,200 1440,208 L1440,320 L0,320 Z',
           ],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      />
+    </svg>
+    {/* Middle wave */}
+    <svg className="absolute bottom-0 w-full h-48 opacity-[0.10]" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <motion.path
+        fill="currentColor"
+        className="text-primary"
+        animate={{
+          d: [
+            'M0,256 C80,240 160,280 320,264 C480,248 560,220 720,232 C880,244 960,280 1120,272 C1280,264 1360,236 1440,248 L1440,320 L0,320 Z',
+            'M0,268 C80,280 160,240 320,252 C480,264 560,280 720,268 C880,256 960,232 1120,244 C1280,256 1360,276 1440,260 L1440,320 L0,320 Z',
+            'M0,256 C80,240 160,280 320,264 C480,248 560,220 720,232 C880,244 960,280 1120,272 C1280,264 1360,236 1440,248 L1440,320 L0,320 Z',
+          ],
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+      />
+    </svg>
+    {/* Front wave */}
+    <svg className="absolute bottom-0 w-full h-40 opacity-[0.15]" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <motion.path
+        fill="currentColor"
+        className="text-primary"
+        animate={{
+          d: [
+            'M0,288 C60,276 180,296 300,284 C420,272 540,260 720,272 C900,284 1020,300 1140,292 C1260,284 1380,268 1440,276 L1440,320 L0,320 Z',
+            'M0,280 C60,292 180,268 300,280 C420,292 540,300 720,288 C900,276 1020,264 1140,276 C1260,288 1380,296 1440,284 L1440,320 L0,320 Z',
+            'M0,288 C60,276 180,296 300,284 C420,272 540,260 720,272 C900,284 1020,300 1140,292 C1260,284 1380,268 1440,276 L1440,320 L0,320 Z',
+          ],
+        }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+    </svg>
+    {/* Subtle foam/crest highlight */}
+    <svg className="absolute bottom-0 w-full h-36 opacity-[0.05]" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <motion.path
+        fill="currentColor"
+        className="text-ring"
+        animate={{
+          d: [
+            'M0,296 C90,288 270,304 450,292 C630,280 810,272 990,284 C1170,296 1350,304 1440,296 L1440,320 L0,320 Z',
+            'M0,300 C90,304 270,288 450,296 C630,304 810,296 990,288 C1170,280 1350,292 1440,300 L1440,320 L0,320 Z',
+            'M0,296 C90,288 270,304 450,292 C630,280 810,272 990,284 C1170,296 1350,304 1440,296 L1440,320 L0,320 Z',
+          ],
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
       />
     </svg>
   </div>
