@@ -185,11 +185,8 @@ export const ServicesSection = () => {
             );
           })}
 
-        </div>
-
-        {/* Tools & Technologies Card - Centered */}
-        <div className="flex justify-center mt-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col w-full max-w-md">
+          {/* Tools & Technologies Card - aligned with middle column */}
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-start-2">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
@@ -197,7 +194,6 @@ export const ServicesSection = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Tools & Technologies</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
-
               <div className="mt-5 space-y-4">
                 <div>
                   <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">AI Tools</span>
@@ -220,12 +216,6 @@ export const ServicesSection = () => {
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.8 }} className="text-center mt-12">
-          <Button size="lg" className="rounded-full gap-2 px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            {s.ctaText}
-            <ArrowUpRight className="w-4 h-4" />
-          </Button>
-        </motion.div>
       </div>
       <ScrollDivider />
     </section>
