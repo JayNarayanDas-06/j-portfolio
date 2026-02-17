@@ -16,7 +16,7 @@ import canvaLogo from '@/assets/tools/canva.png';
 import adobeLogo from '@/assets/tools/adobe.png';
 import microsoftLogo from '@/assets/tools/microsoft.png';
 import gscLogo from '@/assets/tools/googlesearchconsole.png';
-import gaLogo from '@/assets/tools/googleanalytics.png';
+import gaLogo from '@/assets/tools/googleanalytics.svg';
 import geminiLogo from '@/assets/tools/googlegemini.png';
 import semrushLogo from '@/assets/tools/semrush.png';
 import googleLogo from '@/assets/tools/google.png';
