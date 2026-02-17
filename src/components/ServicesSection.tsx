@@ -66,28 +66,30 @@ const aiDesignTools = {
 
 const ToolLogo = ({ slug, name, size = 24 }: { slug: string; name: string; size?: number }) => {
   const [failed, setFailed] = React.useState(false);
-  if (failed) {
-    return (
-      <span
-        title={name}
-        className="inline-flex items-center justify-center rounded-md bg-muted text-muted-foreground font-semibold text-[10px] leading-none grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-        style={{ width: size, height: size }}
-      >
-        {name.slice(0, 2)}
-      </span>
-    );
-  }
+  const containerSize = size + 12;
+  const iconSize = size - 4;
   return (
-    <img
-      src={`https://cdn.simpleicons.org/${slug}`}
-      alt={name}
+    <span
       title={name}
-      width={size}
-      height={size}
-      className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-      loading="lazy"
-      onError={() => setFailed(true)}
-    />
+      className="inline-flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-300"
+      style={{ width: containerSize, height: containerSize }}
+    >
+      {failed ? (
+        <span className="font-semibold text-muted-foreground text-[9px] leading-none">
+          {name.slice(0, 2)}
+        </span>
+      ) : (
+        <img
+          src={`https://cdn.simpleicons.org/${slug}`}
+          alt={name}
+          width={iconSize}
+          height={iconSize}
+          className="rounded-sm"
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </span>
   );
 };
 
@@ -144,7 +146,7 @@ export const ServicesSection = () => {
           })}
 
           {/* AI & Design Tools Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-span-2">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-span-3">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
