@@ -18,10 +18,10 @@ export const WaterWaveCanvas = () => {
   const getColors = useCallback(() => {
     const root = document.documentElement;
     const styles = getComputedStyle(root);
-    const primary = styles.getPropertyValue('--primary').trim();
-    const ring = styles.getPropertyValue('--ring').trim();
-    const bg = styles.getPropertyValue('--background').trim();
-    return { primary, ring, bg };
+    // CSS vars are space-separated HSL like "200 98% 39%", convert to comma-separated
+    const primary = styles.getPropertyValue('--primary').trim().replace(/\s+/g, ', ');
+    const ring = styles.getPropertyValue('--ring').trim().replace(/\s+/g, ', ');
+    return { primary, ring };
   }, []);
 
   const draw = useCallback(() => {
@@ -47,21 +47,16 @@ export const WaterWaveCanvas = () => {
 
     // Wave layers from back to front
     const layers: WaveLayer[] = [
-      // Deep background wave
-      { amplitude: 12, frequency: 0.008, speed: 0.3, phase: 0, color: `hsla(${primary}, 0.06)`, opacity: 1, yOffset: h * 0.55 },
-      { amplitude: 10, frequency: 0.012, speed: -0.2, phase: 1.5, color: `hsla(${primary}, 0.05)`, opacity: 1, yOffset: h * 0.58 },
-      // Mid waves
-      { amplitude: 15, frequency: 0.006, speed: 0.5, phase: 0.8, color: `hsla(${primary}, 0.08)`, opacity: 1, yOffset: h * 0.62 },
-      { amplitude: 8, frequency: 0.015, speed: -0.4, phase: 2.2, color: `hsla(${ring}, 0.06)`, opacity: 1, yOffset: h * 0.65 },
-      // Front waves
-      { amplitude: 18, frequency: 0.005, speed: 0.6, phase: 1.2, color: `hsla(${primary}, 0.1)`, opacity: 1, yOffset: h * 0.7 },
-      { amplitude: 6, frequency: 0.02, speed: -0.35, phase: 3.1, color: `hsla(${ring}, 0.07)`, opacity: 1, yOffset: h * 0.72 },
-      // Surface waves
-      { amplitude: 20, frequency: 0.004, speed: 0.7, phase: 0.5, color: `hsla(${primary}, 0.12)`, opacity: 1, yOffset: h * 0.76 },
-      { amplitude: 5, frequency: 0.025, speed: -0.5, phase: 4.0, color: `hsla(${primary}, 0.08)`, opacity: 1, yOffset: h * 0.78 },
-      // Foam/crest
-      { amplitude: 22, frequency: 0.003, speed: 0.8, phase: 2.0, color: `hsla(${primary}, 0.15)`, opacity: 1, yOffset: h * 0.82 },
-      { amplitude: 4, frequency: 0.03, speed: 0.9, phase: 1.0, color: `hsla(${ring}, 0.1)`, opacity: 1, yOffset: h * 0.85 },
+      { amplitude: 8, frequency: 0.008, speed: 0.3, phase: 0, color: `hsla(${primary}, 0.04)`, opacity: 1, yOffset: h * 0.78 },
+      { amplitude: 6, frequency: 0.012, speed: -0.2, phase: 1.5, color: `hsla(${primary}, 0.03)`, opacity: 1, yOffset: h * 0.80 },
+      { amplitude: 10, frequency: 0.006, speed: 0.5, phase: 0.8, color: `hsla(${primary}, 0.05)`, opacity: 1, yOffset: h * 0.83 },
+      { amplitude: 5, frequency: 0.015, speed: -0.4, phase: 2.2, color: `hsla(${ring}, 0.04)`, opacity: 1, yOffset: h * 0.85 },
+      { amplitude: 12, frequency: 0.005, speed: 0.6, phase: 1.2, color: `hsla(${primary}, 0.06)`, opacity: 1, yOffset: h * 0.87 },
+      { amplitude: 4, frequency: 0.02, speed: -0.35, phase: 3.1, color: `hsla(${ring}, 0.04)`, opacity: 1, yOffset: h * 0.89 },
+      { amplitude: 14, frequency: 0.004, speed: 0.7, phase: 0.5, color: `hsla(${primary}, 0.08)`, opacity: 1, yOffset: h * 0.91 },
+      { amplitude: 3, frequency: 0.025, speed: -0.5, phase: 4.0, color: `hsla(${primary}, 0.05)`, opacity: 1, yOffset: h * 0.93 },
+      { amplitude: 16, frequency: 0.003, speed: 0.8, phase: 2.0, color: `hsla(${primary}, 0.1)`, opacity: 1, yOffset: h * 0.95 },
+      { amplitude: 2, frequency: 0.03, speed: 0.9, phase: 1.0, color: `hsla(${ring}, 0.06)`, opacity: 1, yOffset: h * 0.97 },
     ];
 
     layers.forEach((layer) => {
