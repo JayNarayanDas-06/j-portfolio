@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { Search, FileSearch, Globe, Share2, BarChart, PenTool, ArrowUpRight, Wrench, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
@@ -64,17 +64,32 @@ const aiDesignTools = {
   ],
 };
 
-const ToolLogo = ({ slug, name, size = 24 }: { slug: string; name: string; size?: number }) => (
-  <img
-    src={`https://cdn.simpleicons.org/${slug}`}
-    alt={name}
-    title={name}
-    width={size}
-    height={size}
-    className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-    loading="lazy"
-  />
-);
+const ToolLogo = ({ slug, name, size = 24 }: { slug: string; name: string; size?: number }) => {
+  const [failed, setFailed] = React.useState(false);
+  if (failed) {
+    return (
+      <span
+        title={name}
+        className="inline-flex items-center justify-center rounded-md bg-muted text-muted-foreground font-semibold text-[10px] leading-none grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+        style={{ width: size, height: size }}
+      >
+        {name.slice(0, 2)}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={`https://cdn.simpleicons.org/${slug}`}
+      alt={name}
+      title={name}
+      width={size}
+      height={size}
+      className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+};
 
 export const ServicesSection = () => {
   const ref = useRef(null);
@@ -129,14 +144,14 @@ export const ServicesSection = () => {
           })}
 
           {/* AI & Design Tools Card */}
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-span-2">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <Sparkles className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">AI & Design Tools I Work With</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">Enhancing every service with hands-on experience in these tools.</p>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Tools & Technologies</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
 
               <div className="mt-5 space-y-4">
                 <div>
