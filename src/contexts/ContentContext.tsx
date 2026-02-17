@@ -105,12 +105,12 @@ export const defaultServicesContent = {
   titleHighlight: 'Services',
   subtitle: 'Comprehensive digital marketing solutions to elevate your online presence and drive measurable growth',
   services: [
-    { title: 'SEO Optimization & Technical Audits', description: 'Comprehensive website audits to identify and fix technical issues, improve site speed, and enhance crawlability for better search rankings.' },
-    { title: 'Keyword Research & Content Strategy', description: 'Data-driven keyword research and content planning to target high-value search terms and capture qualified organic traffic.' },
-    { title: 'On-Page & Off-Page SEO', description: 'Optimize page elements, meta tags, internal linking, and build quality backlinks to boost domain authority and visibility.' },
-    { title: 'Social Media Optimization (SMO)', description: 'Strategic social media presence management to increase brand awareness, engagement, and drive traffic from social platforms.' },
-    { title: 'Content Strategy & Growth Planning', description: 'Develop content calendars and strategies aligned with SEO goals to establish thought leadership and drive consistent growth.' },
-    { title: 'Performance Tracking & Reporting', description: 'Regular performance analysis with actionable insights using Google Analytics and Search Console to measure ROI and optimize strategies.' },
+    { title: 'SEO Optimization & Technical Audits', description: 'In-depth site audits covering crawl errors, page speed, mobile usability, and indexation issues to ensure search engines can discover and rank your pages effectively.' },
+    { title: 'Keyword Research & Content Strategy', description: 'Uncover high-intent keywords, analyze competitor gaps, and build a content roadmap that attracts the right audience and converts visitors into customers.' },
+    { title: 'On-Page & Off-Page SEO', description: 'From meta tags and schema markup to strategic link building and digital PR — a full-spectrum approach to strengthen your search presence and domain authority.' },
+    { title: 'Social Media Optimization (SMO)', description: 'Craft platform-specific strategies for Instagram, LinkedIn, Facebook & X to grow your community, boost engagement, and drive meaningful referral traffic.' },
+    { title: 'Content Strategy & Growth Planning', description: 'Build editorial calendars, pillar-cluster content models, and distribution plans that align with your brand goals and fuel long-term organic growth.' },
+    { title: 'Performance Tracking & Reporting', description: 'Set up dashboards, track KPIs, and deliver clear monthly reports with actionable recommendations to continuously improve your digital marketing ROI.' },
   ],
   ctaText: 'Get Started',
 };
@@ -275,7 +275,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 12; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 13; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
