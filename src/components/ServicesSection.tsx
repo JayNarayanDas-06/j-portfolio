@@ -7,6 +7,26 @@ import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 import { Separator } from '@/components/ui/separator';
 
+// Local imports for logos not available on SimpleIcons CDN
+import ahrefsLogo from '@/assets/tools/ahrefs.svg';
+import mozLogo from '@/assets/tools/moz.svg';
+import screamingfrogLogo from '@/assets/tools/screamingfrog.svg';
+import openaiLogo from '@/assets/tools/openai.svg';
+import canvaLogo from '@/assets/tools/canva.svg';
+import adobeLogo from '@/assets/tools/adobe.svg';
+import microsoftLogo from '@/assets/tools/microsoft.svg';
+
+// Map slugs to local imports for logos that fail on CDN
+const localLogos: Record<string, string> = {
+  ahrefs: ahrefsLogo,
+  moz: mozLogo,
+  screamingfrog: screamingfrogLogo,
+  openai: openaiLogo,
+  canva: canvaLogo,
+  adobe: adobeLogo,
+  microsoft365: microsoftLogo,
+};
+
 const serviceIcons = [FileSearch, Search, Globe, Share2, PenTool, BarChart];
 
 // Tool logo mappings per service card (by index)
@@ -65,30 +85,24 @@ const aiDesignTools = {
 };
 
 const ToolLogo = ({ slug, name, size = 24 }: { slug: string; name: string; size?: number }) => {
-  const [failed, setFailed] = React.useState(false);
   const containerSize = size + 12;
   const iconSize = size - 4;
+  const localSrc = localLogos[slug];
+  const src = localSrc || `https://cdn.simpleicons.org/${slug}`;
   return (
     <span
       title={name}
       className="inline-flex items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-300"
       style={{ width: containerSize, height: containerSize }}
     >
-      {failed ? (
-        <span className="font-semibold text-muted-foreground text-[9px] leading-none">
-          {name.slice(0, 2)}
-        </span>
-      ) : (
-        <img
-          src={`https://cdn.simpleicons.org/${slug}`}
-          alt={name}
-          width={iconSize}
-          height={iconSize}
-          className="rounded-sm"
-          loading="lazy"
-          onError={() => setFailed(true)}
-        />
-      )}
+      <img
+        src={src}
+        alt={name}
+        width={iconSize}
+        height={iconSize}
+        className="rounded-sm"
+        loading="lazy"
+      />
     </span>
   );
 };
