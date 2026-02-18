@@ -16,7 +16,7 @@ export const defaultHeroContent = {
   profileImage: '/lovable-uploads/jay-profile-new.png?v=3',
   profileAlt: 'Jay Narayan Das - SEO & SMM Specialist',
   stats: [
-    { value: '1+', label: 'Years Experience' },
+    { value: '2+', label: 'Years Experience' },
     { value: '7+', label: 'Projects Done' },
     { value: '95%', label: 'Client Satisfaction' },
   ],
@@ -30,7 +30,7 @@ export const defaultAboutContent = {
   headingHighlight: 'Digital Marketing',
   headingSuffix: 'Professional',
   paragraphs: [
-    "I'm Jay Narayan Das, an SEO & SMM specialist with over 1 year of experience in improving organic growth through technical SEO, website audits, keyword research, content optimization, and data-driven insights.",
+    "I'm Jay Narayan Das, an SEO & SMM specialist with over 2 years of experience in improving organic growth through technical SEO, website audits, keyword research, content optimization, and data-driven insights.",
     'I possess a strong technical mindset and focus on enhancing digital presence through analytical strategies and performance tracking. My approach combines creativity with data to deliver measurable results that drive real business growth.',
     'With a background in Computer Science and a deep passion for digital marketing, I bring a unique blend of technical expertise and creative thinking to every project.',
   ],
@@ -275,7 +275,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 13; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 14; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {

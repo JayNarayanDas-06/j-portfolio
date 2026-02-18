@@ -192,8 +192,8 @@ export const ServicesSection = () => {
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <Sparkles className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">Tools & Technologies</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
+              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">Tools & Technologies</h3>
+              <p className="text-muted-foreground leading-relaxed">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
               <div className="mt-5 space-y-4">
                 <div>
                   <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">AI Tools</span>
