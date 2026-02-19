@@ -8,6 +8,8 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
+import { EditModeToggle } from '@/components/EditModeToggle';
+import { EditModeProvider } from '@/contexts/EditModeContext';
 import { useContent } from '@/contexts/ContentContext';
 
 const Index = () => {
@@ -24,20 +26,24 @@ const Index = () => {
       link.href = content.footer.faviconUrl;
     }
   }, [content.footer.faviconUrl]);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ServicesSection />
-        <PortfolioSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <EditModeProvider>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ServicesSection />
+          <PortfolioSection />
+          <ContactSection />
+        </main>
+        <Footer />
+        <EditModeToggle />
+      </div>
+    </EditModeProvider>
   );
 };
 

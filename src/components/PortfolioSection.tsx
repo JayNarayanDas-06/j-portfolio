@@ -8,18 +8,19 @@ import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
+import { EditableText } from '@/components/EditableText';
 
 const iconMap: Record<string, React.ElementType> = { Target, TrendingUp, BarChart, Users };
 const projectIcons: Record<string, string> = {
   auditfiling: auditfilingFavicon,
   cloudsat: cloudsatIcon,
-  i4option: i4optionIcon
+  i4option: i4optionIcon,
 };
 
 export const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const { content } = useContent();
+  const { content, updateSection } = useContent();
   const p = content.portfolio;
   const projects = p.projects || [];
 
@@ -51,43 +52,38 @@ export const PortfolioSection = () => {
 
       <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
-          <span className="text-sm font-medium tracking-wider uppercase text-primary">{p.label}</span>
+          <EditableText value={p.label} onChange={(v) => updateSection('portfolio', { label: v })} className="text-sm font-medium tracking-wider uppercase text-primary" />
           <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
             <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
               <Briefcase className="w-6 h-6 text-blue-400" />
             </motion.div>
-            {p.title} <span className="gradient-text text-ring mx-[5px]">{p.titleHighlight}</span>
+            <EditableText value={p.title} onChange={(v) => updateSection('portfolio', { title: v })} />{' '}
+            <EditableText value={p.titleHighlight} onChange={(v) => updateSection('portfolio', { titleHighlight: v })} className="gradient-text text-ring mx-[5px]" />
           </h2>
-          <p className="section-subtitle mx-auto mt-4">{p.subtitle}</p>
+          <EditableText value={p.subtitle} onChange={(v) => updateSection('portfolio', { subtitle: v })} as="p" className="section-subtitle mx-auto mt-4" />
         </motion.div>
 
         {/* Project Tabs */}
-        {projects.length > 1 &&
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.15 }} className="flex justify-center gap-2 mb-8 flex-wrap">
-            {projects.map((proj, i) =>
-          <button
-            key={proj.id}
-            onClick={() => setActiveProject(i)}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
-            i === activeProject ?
-            'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20' :
-            'bg-card border-border hover:bg-accent hover:text-accent-foreground'}`
-            }>
-
+        {projects.length > 1 && (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.15 }} className="flex justify-center gap-2 mb-8 flex-wrap">
+            {projects.map((proj, i) => (
+              <button
+                key={proj.id}
+                onClick={() => setActiveProject(i)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+                  i === activeProject
+                    ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20'
+                    : 'bg-card border-border hover:bg-accent hover:text-accent-foreground'
+                }`}
+              >
                 <img src={projectIcons[proj.icon] || auditfilingFavicon} alt="" className="w-5 h-5 rounded object-contain" />
                 {proj.title.split('–')[0].split('Website')[0].trim()}
               </button>
-          )}
+            ))}
           </motion.div>
-        }
+        )}
 
-        <motion.div
-          key={activeProject}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-5xl mx-auto">
-
+        <motion.div key={activeProject} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 }} className="max-w-5xl mx-auto">
           <div className="rounded-2xl bg-card border border-border overflow-hidden card-hover">
             <div className="p-6 md:p-8 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -96,16 +92,33 @@ export const PortfolioSection = () => {
                     <img src={projectIcons[project.icon] || auditfilingFavicon} alt={project.title} className="w-8 h-8 object-contain" />
                   </a>
                   <div>
-                    <span className="text-sm text-primary font-medium">{project.label}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold mt-1">{project.title}</h3>
+                    <EditableText
+                      value={project.label}
+                      onChange={(v) => {
+                        const prjs = [...projects];
+                        prjs[activeProject] = { ...prjs[activeProject], label: v };
+                        updateSection('portfolio', { projects: prjs });
+                      }}
+                      className="text-sm text-primary font-medium"
+                    />
+                    <EditableText
+                      value={project.title}
+                      onChange={(v) => {
+                        const prjs = [...projects];
+                        prjs[activeProject] = { ...prjs[activeProject], title: v };
+                        updateSection('portfolio', { projects: prjs });
+                      }}
+                      as="h3"
+                      className="text-2xl md:text-3xl font-bold mt-1"
+                    />
                   </div>
                 </div>
-                {images.length > 0 && !showPreview &&
-                <Button variant="outline" className="rounded-full gap-2" onClick={() => {setShowPreview(true);setCurrentSlide(0);}}>
+                {images.length > 0 && !showPreview && (
+                  <Button variant="outline" className="rounded-full gap-2" onClick={() => { setShowPreview(true); setCurrentSlide(0); }}>
                     Project Preview
                     <Image className="w-4 h-4" />
                   </Button>
-                }
+                )}
               </div>
             </div>
 
@@ -118,27 +131,59 @@ export const PortfolioSection = () => {
                       <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                         <IconComp className="w-5 h-5 text-primary" />
                       </div>
-                      <div className="font-semibold text-sm">{item.label}</div>
-                      <div className="text-xs text-muted-foreground">{item.description}</div>
-                    </motion.div>);
-
+                      <EditableText
+                        value={item.label}
+                        onChange={(v) => {
+                          const prjs = [...projects];
+                          const highlights = [...prjs[activeProject].highlights];
+                          highlights[index] = { ...highlights[index], label: v };
+                          prjs[activeProject] = { ...prjs[activeProject], highlights };
+                          updateSection('portfolio', { projects: prjs });
+                        }}
+                        as="div"
+                        className="font-semibold text-sm"
+                      />
+                      <EditableText
+                        value={item.description}
+                        onChange={(v) => {
+                          const prjs = [...projects];
+                          const highlights = [...prjs[activeProject].highlights];
+                          highlights[index] = { ...highlights[index], description: v };
+                          prjs[activeProject] = { ...prjs[activeProject], highlights };
+                          updateSection('portfolio', { projects: prjs });
+                        }}
+                        as="div"
+                        className="text-xs text-muted-foreground"
+                      />
+                    </motion.div>
+                  );
                 })}
               </div>
 
-              {!showPreview ?
-              <div>
+              {!showPreview ? (
+                <div>
                   <h4 className="text-lg font-semibold mb-4">Key Achievements</h4>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {project.achievements.map((achievement, index) =>
-                  <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-slate-200">
+                    {project.achievements.map((achievement, index) => (
+                      <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }} className="flex items-start gap-3 p-3 rounded-lg bg-slate-200">
                         <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground">{achievement}</span>
+                        <EditableText
+                          value={achievement}
+                          onChange={(v) => {
+                            const prjs = [...projects];
+                            const achievements = [...prjs[activeProject].achievements];
+                            achievements[index] = v;
+                            prjs[activeProject] = { ...prjs[activeProject], achievements };
+                            updateSection('portfolio', { projects: prjs });
+                          }}
+                          className="text-muted-foreground"
+                        />
                       </motion.div>
-                  )}
+                    ))}
                   </div>
-                </div> :
-
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+                </div>
+              ) : (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-lg font-semibold">Project Preview</h4>
                     <Button variant="outline" size="sm" className="rounded-full gap-2" onClick={() => setShowPreview(false)}>
@@ -147,11 +192,11 @@ export const PortfolioSection = () => {
                     </Button>
                   </div>
                   <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
-                    {images.map((img, i) =>
-                  <img key={i} src={img} alt={`Project preview ${i + 1}`} loading="lazy" width={960} height={540} className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
-                  )}
-                    {images.length > 1 &&
-                  <>
+                    {images.map((img, i) => (
+                      <img key={i} src={img} alt={`Project preview ${i + 1}`} loading="lazy" width={960} height={540} className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${i === currentSlide ? 'opacity-100' : 'opacity-0'}`} />
+                    ))}
+                    {images.length > 1 && (
+                      <>
                         <button onClick={() => setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)} className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors">
                           <ChevronLeft className="w-4 h-4" />
                         </button>
@@ -159,26 +204,27 @@ export const PortfolioSection = () => {
                           <ChevronRight className="w-4 h-4" />
                         </button>
                         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                          {images.map((_, i) =>
-                      <button key={i} onClick={() => setCurrentSlide(i)} className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary' : 'bg-foreground/30'}`} />
-                      )}
+                          {images.map((_, i) => (
+                            <button key={i} onClick={() => setCurrentSlide(i)} className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-primary' : 'bg-foreground/30'}`} />
+                          ))}
                         </div>
                       </>
-                  }
+                    )}
                   </div>
                 </motion.div>
-              }
+              )}
             </div>
           </div>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.8 }} className="text-center mt-12">
           <p className="text-muted-foreground">
-            {p.comingSoonText} <span className="text-primary">{p.comingSoonHighlight}</span>
+            <EditableText value={p.comingSoonText} onChange={(v) => updateSection('portfolio', { comingSoonText: v })} />{' '}
+            <EditableText value={p.comingSoonHighlight} onChange={(v) => updateSection('portfolio', { comingSoonHighlight: v })} className="text-primary" />
           </p>
         </motion.div>
       </div>
       <ScrollDivider />
-    </section>);
-
+    </section>
+  );
 };
