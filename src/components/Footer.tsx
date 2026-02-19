@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUp, Mail, MapPin, Heart } from 'lucide-react';
 import { useContent } from '@/contexts/ContentContext';
+import { EditableText } from '@/components/EditableText';
 import linkedinIcon from '@/assets/linkedin-icon.png';
 import instagramIcon from '@/assets/instagram-icon.png';
 import xIcon from '@/assets/x-icon.ico';
@@ -16,7 +17,7 @@ const navLinks = [
 ];
 
 export const Footer = () => {
-  const { content } = useContent();
+  const { content, updateSection } = useContent();
   const f = content.footer;
 
   const scrollToTop = () => {
@@ -33,12 +34,12 @@ export const Footer = () => {
                 <img src={f.logoUrl} alt={f.brandName} className="h-10 w-auto object-contain" />
               ) : (
                 <>
-                  <span className="text-foreground">{f.brandName}</span>
+                  <EditableText value={f.brandName} onChange={(v) => updateSection('footer', { brandName: v })} className="text-foreground" />
                   <span className="text-primary">{f.brandDot}</span>
                 </>
               )}
             </a>
-            <p className="text-muted-foreground mt-4 text-sm leading-relaxed">{f.tagline}</p>
+            <EditableText value={f.tagline} onChange={(v) => updateSection('footer', { tagline: v })} as="p" className="text-muted-foreground mt-4 text-sm leading-relaxed" />
           </div>
 
           <div>
@@ -57,11 +58,11 @@ export const Footer = () => {
             <div className="space-y-3 text-sm">
               <a href={`mailto:${f.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
-                {f.email}
+                <EditableText value={f.email} onChange={(v) => updateSection('footer', { email: v })} />
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                {f.location}
+                <EditableText value={f.location} onChange={(v) => updateSection('footer', { location: v })} />
               </div>
             </div>
           </div>
@@ -70,8 +71,9 @@ export const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
-              © {new Date().getFullYear()} {f.copyright}. Made with{' '}
-              <Heart className="w-4 h-4 text-primary fill-primary" />
+              © {new Date().getFullYear()}{' '}
+              <EditableText value={f.copyright} onChange={(v) => updateSection('footer', { copyright: v })} />
+              . Made with <Heart className="w-4 h-4 text-primary fill-primary" />
             </p>
             <div className="flex items-center gap-3">
               <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">

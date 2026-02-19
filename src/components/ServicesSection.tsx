@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
+import { EditableText } from '@/components/EditableText';
 import { Separator } from '@/components/ui/separator';
 
 // Local PNG imports for all tool logos (64px favicons)
@@ -139,7 +140,7 @@ export const ServicesSection = () => {
     once: true,
     margin: '-100px'
   });
-  const { content } = useContent();
+  const { content, updateSection } = useContent();
   const s = content.services;
 
   return (
@@ -147,14 +148,15 @@ export const ServicesSection = () => {
       <SectionBackground variant="waves" />
       <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
-          <span className="text-sm font-medium tracking-wider uppercase text-primary">{s.label}</span>
+          <EditableText value={s.label} onChange={(v) => updateSection('services', { label: v })} className="text-sm font-medium tracking-wider uppercase text-primary" />
           <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
             <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
               <Wrench className="w-6 h-6 text-blue-400" />
             </motion.div>
-            {s.title} <span className="gradient-text text-ring mx-[5px]">{s.titleHighlight}</span>
+            <EditableText value={s.title} onChange={(v) => updateSection('services', { title: v })} />{' '}
+            <EditableText value={s.titleHighlight} onChange={(v) => updateSection('services', { titleHighlight: v })} className="gradient-text text-ring mx-[5px]" />
           </h2>
-          <p className="section-subtitle mx-auto mt-4">{s.subtitle}</p>
+          <EditableText value={s.subtitle} onChange={(v) => updateSection('services', { subtitle: v })} as="p" className="section-subtitle mx-auto mt-4" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -168,8 +170,26 @@ export const ServicesSection = () => {
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <EditableText
+                    value={service.title}
+                    onChange={(v) => {
+                      const services = [...s.services];
+                      services[index] = { ...services[index], title: v };
+                      updateSection('services', { services });
+                    }}
+                    as="h3"
+                    className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors"
+                  />
+                  <EditableText
+                    value={service.description}
+                    onChange={(v) => {
+                      const services = [...s.services];
+                      services[index] = { ...services[index], description: v };
+                      updateSection('services', { services });
+                    }}
+                    as="p"
+                    className="text-muted-foreground leading-relaxed"
+                  />
                 </div>
                 {tools.length > 0 && (
                   <div className="relative z-10 mt-5">
