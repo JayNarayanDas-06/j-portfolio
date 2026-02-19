@@ -8,8 +8,6 @@ import { useToast } from '@/hooks/use-toast';
 import { ScrollDivider } from '@/components/ScrollDivider';
 import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
-import { Icon3D, Icon3DCard, Icon3DInline } from '@/components/Icon3D';
-
 const formLabels = {
   name: 'Your Name',
   namePlaceholder: 'John Doe',
@@ -23,35 +21,55 @@ const formLabels = {
   submittingButton: 'Sending...',
   submittedButton: 'Message Sent!'
 };
-
 export const ContactSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: '-100px'
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { toast } = useToast();
-  const { content } = useContent();
+  const {
+    toast
+  } = useToast();
+  const {
+    content
+  } = useContent();
   const c = content.contact;
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
-    toast({ title: 'Message sent!', description: "Thank you for reaching out. I'll get back to you soon." });
+    toast({
+      title: 'Message sent!',
+      description: "Thank you for reaching out. I'll get back to you soon."
+    });
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-
-  return (
-    <section id="contact" className="relative py-20 bg-secondary/20 md:py-0">
+  return <section id="contact" className="relative py-20 bg-secondary/20 md:py-0">
       <SectionBackground variant="waves" />
       <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.5
+      }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{c.label}</span>
           <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
-            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-              <Icon3D icon={MessageCircle} size={40} />
+            <motion.div animate={{
+            y: [0, -6, 0]
+          }} transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
+              <MessageCircle className="w-6 h-6 text-blue-400" />
             </motion.div>
             {c.title} <span className="gradient-text text-ring mx-[5px]">{c.titleHighlight}</span>
           </h2>
@@ -59,32 +77,56 @@ export const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.2 }} className="lg:col-span-2 space-y-6">
+          <motion.div initial={{
+          opacity: 0,
+          x: -30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.5,
+          delay: 0.2
+        }} className="lg:col-span-2 space-y-6">
             <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
-                <Icon3DCard icon={Mail} size={24} />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Email</div>
                   <a href={`mailto:${c.email}`} className="font-medium text-primary hover:underline">{c.email}</a>
                 </div>
               </div>
             </div>
+
             <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
-                <Icon3DCard icon={MapPin} size={24} />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Location</div>
                   <div className="font-medium">{c.location}</div>
                 </div>
               </div>
             </div>
+
             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/25 border border-primary/30">
               <p className="text-sm text-muted-foreground mb-2">{c.ctaLine1}</p>
               <p className="font-medium">{c.ctaLine2}</p>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.3 }} className="lg:col-span-3">
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.5,
+          delay: 0.3
+        }} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="p-6 md:p-8 rounded-2xl bg-card border border-border space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -112,6 +154,5 @@ export const ContactSection = () => {
         </div>
       </div>
       <ScrollDivider />
-    </section>
-  );
+    </section>;
 };
