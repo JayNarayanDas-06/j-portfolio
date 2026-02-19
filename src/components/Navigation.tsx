@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useContent } from '@/contexts/ContentContext';
 import linkedinIcon from '@/assets/linkedin-icon-32.webp';
 import instagramIcon from '@/assets/instagram-icon-32.webp';
 import xIcon from '@/assets/x-icon.ico';
@@ -16,10 +17,12 @@ import xIcon from '@/assets/x-icon.ico';
    { name: 'Contact', href: '#contact' },
  ];
  
- export const Navigation = () => {
-   const [isScrolled, setIsScrolled] = useState(false);
-   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-   const [activeSection, setActiveSection] = useState('home');
+  export const Navigation = () => {
+    const { content } = useContent();
+    const logoUrl = content.footer.logoUrl;
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
  
    useEffect(() => {
      const handleScroll = () => {
@@ -66,15 +69,21 @@ import xIcon from '@/assets/x-icon.ico';
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="flex items-center justify-between h-16 md:h-20">
              {/* Logo */}
-             <motion.a
-               href="#home"
-               onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
-               className="font-display text-xl md:text-2xl font-semibold italic"
-               whileHover={{ scale: 1.05 }}
-             >
-               <span className="text-foreground">Jay</span>
-               <span className="text-primary">.</span>
-             </motion.a>
+              <motion.a
+                href="#home"
+                onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+                className="font-display text-xl md:text-2xl font-semibold italic"
+                whileHover={{ scale: 1.05 }}
+              >
+                {logoUrl ? (
+                  <img src={logoUrl} alt={content.footer.brandName} className="h-8 md:h-10 w-auto object-contain" />
+                ) : (
+                  <>
+                    <span className="text-foreground">{content.footer.brandName}</span>
+                    <span className="text-primary">{content.footer.brandDot}</span>
+                  </>
+                )}
+              </motion.a>
  
              {/* Desktop Navigation */}
              <div className="hidden md:flex items-center gap-1">

@@ -346,6 +346,28 @@ const Admin = () => {
             <Field label="Copyright Name" value={content.footer.copyright} onChange={(v) => updateSection('footer', { copyright: v })} />
           </div>
           <Field label="Tagline" value={content.footer.tagline} onChange={(v) => updateSection('footer', { tagline: v })} multiline />
+          <h4 className="text-sm font-semibold mt-4">🖼️ Logo & Favicon</h4>
+          <p className="text-xs text-muted-foreground">Paste an image URL to replace the text logo. Leave empty to use text.</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Field label="Logo Image URL" value={content.footer.logoUrl} onChange={(v) => updateSection('footer', { logoUrl: v })} maxLength={MAX_URL} />
+              {content.footer.logoUrl && (
+                <div className="p-3 rounded-lg bg-secondary/20 border border-border">
+                  <p className="text-xs text-muted-foreground mb-2">Preview:</p>
+                  <img src={content.footer.logoUrl} alt="Logo preview" className="h-10 w-auto object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                </div>
+              )}
+            </div>
+            <div className="space-y-2">
+              <Field label="Favicon URL" value={content.footer.faviconUrl} onChange={(v) => updateSection('footer', { faviconUrl: v })} maxLength={MAX_URL} />
+              {content.footer.faviconUrl && (
+                <div className="p-3 rounded-lg bg-secondary/20 border border-border">
+                  <p className="text-xs text-muted-foreground mb-2">Preview:</p>
+                  <img src={content.footer.faviconUrl} alt="Favicon preview" className="h-8 w-8 object-contain" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                </div>
+              )}
+            </div>
+          </div>
         </SectionAccordion>
       </div>
     </div>

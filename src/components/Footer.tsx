@@ -29,8 +29,14 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           <div>
             <a href="#home" className="font-display text-2xl font-semibold italic">
-              <span className="text-foreground">{f.brandName}</span>
-              <span className="text-primary">{f.brandDot}</span>
+              {f.logoUrl ? (
+                <img src={f.logoUrl} alt={f.brandName} className="h-10 w-auto object-contain" />
+              ) : (
+                <>
+                  <span className="text-foreground">{f.brandName}</span>
+                  <span className="text-primary">{f.brandDot}</span>
+                </>
+              )}
             </a>
             <p className="text-muted-foreground mt-4 text-sm leading-relaxed">{f.tagline}</p>
           </div>

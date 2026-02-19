@@ -244,6 +244,8 @@ export const defaultContactContent = {
 export const defaultFooterContent = {
   brandName: 'Jay',
   brandDot: '.',
+  logoUrl: '',
+  faviconUrl: '',
   tagline: 'SEO & SMM Specialist focused on driving organic growth through technical SEO, data-driven insights, and strategic content optimization.',
   email: 'dassitun6@gmail.com',
   location: 'Bhubaneswar, Odisha, India',
@@ -275,7 +277,7 @@ const defaultContent: SiteContent = {
 
 const STORAGE_KEY = 'site-content';
 const CONTENT_VERSION_KEY = 'site-content-version';
-const CONTENT_VERSION = 15; // Bump this when defaults change to force refresh
+const CONTENT_VERSION = 16; // Bump this when defaults change to force refresh
 
 function loadContent(): SiteContent {
   try {
