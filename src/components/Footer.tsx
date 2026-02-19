@@ -4,6 +4,7 @@ import { useContent } from '@/contexts/ContentContext';
 import linkedinIcon from '@/assets/linkedin-icon.png';
 import instagramIcon from '@/assets/instagram-icon.png';
 import xIcon from '@/assets/x-icon.ico';
+import { Icon3DInline } from '@/components/Icon3D';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -34,7 +35,6 @@ export const Footer = () => {
             </a>
             <p className="text-muted-foreground mt-4 text-sm leading-relaxed">{f.tagline}</p>
           </div>
-
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
@@ -45,16 +45,15 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="space-y-3 text-sm">
               <a href={`mailto:${f.email}`} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="w-4 h-4" />
+                <Icon3DInline icon={Mail} size={16} />
                 {f.email}
               </a>
               <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="w-4 h-4" />
+                <Icon3DInline icon={MapPin} size={16} />
                 {f.location}
               </div>
             </div>
@@ -65,7 +64,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground flex items-center gap-1">
               © {new Date().getFullYear()} {f.copyright}. Made with{' '}
-              <Heart className="w-4 h-4 text-primary fill-primary" />
+              <Icon3DInline icon={Heart} size={16} className="text-primary fill-primary" />
             </p>
             <div className="flex items-center gap-3">
               <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
@@ -81,7 +80,7 @@ export const Footer = () => {
             <motion.button onClick={scrollToTop} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               Back to Top
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <ArrowUp className="w-4 h-4 text-primary" />
+                <Icon3DInline icon={ArrowUp} size={16} className="text-primary" />
               </div>
             </motion.button>
           </div>

@@ -6,6 +6,7 @@ import { ScrollDivider } from '@/components/ScrollDivider';
 import { SectionBackground } from '@/components/SectionBackground';
 import { useContent } from '@/contexts/ContentContext';
 import { Separator } from '@/components/ui/separator';
+import { Icon3D, Icon3DCard } from '@/components/Icon3D';
 
 // Local PNG imports for all tool logos (64px favicons)
 import ahrefsLogo from '@/assets/tools/ahrefs.png';
@@ -149,8 +150,8 @@ export const ServicesSection = () => {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{s.label}</span>
           <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
-            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
-              <Wrench className="w-6 h-6 text-blue-400" />
+            <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
+              <Icon3D icon={Wrench} size={40} />
             </motion.div>
             {s.title} <span className="gradient-text text-ring mx-[5px]">{s.titleHighlight}</span>
           </h2>
@@ -165,8 +166,8 @@ export const ServicesSection = () => {
               <motion.div key={index} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative z-10 flex-1">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 flex items-center justify-center mb-5">
+                    <Icon3DCard icon={Icon} size={28} />
                   </div>
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
@@ -189,8 +190,8 @@ export const ServicesSection = () => {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-start-2">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <Sparkles className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 flex items-center justify-center mb-5">
+                <Icon3DCard icon={Sparkles} size={28} />
               </div>
               <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">Tools & Technologies</h3>
               <p className="text-muted-foreground leading-relaxed">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
