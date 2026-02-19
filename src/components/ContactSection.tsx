@@ -86,7 +86,7 @@ export const ContactSection = () => {
         } : {}} transition={{
           duration: 0.5,
           delay: 0.2
-        }} className="lg:col-span-2 space-y-6">
+        }} className="lg:col-span-2 flex flex-col space-y-6">
             <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -111,7 +111,7 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/25 border border-primary/30">
+            <div className="flex-1 p-6 rounded-xl bg-primary/15 border border-primary/30 flex flex-col justify-center">
               <p className="text-sm text-muted-foreground mb-2">{c.ctaLine1}</p>
               <p className="font-medium">{c.ctaLine2}</p>
             </div>
