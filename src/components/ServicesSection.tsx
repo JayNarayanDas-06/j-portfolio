@@ -240,17 +240,15 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* 3D Carousel */}
-        <div className="relative w-full overflow-hidden" style={{ height: 460 }}>
+        <div className="relative w-full overflow-hidden" style={{ height: 400 }}>
           <div className="relative w-full h-[380px]">
             {s.services.map((service, i) => renderServiceCard(service, i))}
             {renderToolsCard()}
           </div>
-
-
         </div>
 
         {/* Progress dots */}
-        <div className="flex justify-center gap-2 py-6">
+        <div className="flex justify-center gap-2 py-3">
           {Array.from({ length: totalCards }).map((_, i) => (
             <button
               key={i}
