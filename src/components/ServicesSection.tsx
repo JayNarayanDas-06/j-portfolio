@@ -246,8 +246,6 @@ export const ServicesSection = () => {
             {renderToolsCard()}
           </div>
 
-          {/* Reflection / gradient fade at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-secondary/10 to-transparent pointer-events-none" />
 
         </div>
 
