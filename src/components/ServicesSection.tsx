@@ -249,23 +249,6 @@ export const ServicesSection = () => {
           {/* Reflection / gradient fade at bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-secondary/10 to-transparent pointer-events-none" />
 
-          {/* Navigation arrows */}
-          <div className="flex justify-center gap-4 mt-6">
-            <button
-              onClick={goPrev}
-              disabled={activeIndex === 0}
-              className="w-12 h-12 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ChevronLeft className="w-5 h-5 text-foreground" />
-            </button>
-            <button
-              onClick={goNext}
-              disabled={activeIndex === totalCards - 1}
-              className="w-12 h-12 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary/10 hover:border-primary/30 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ChevronRight className="w-5 h-5 text-foreground" />
-            </button>
-          </div>
         </div>
 
         {/* Progress dots */}
