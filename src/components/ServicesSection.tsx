@@ -135,6 +135,7 @@ const ToolLogo = ({ slug, name, size = 24 }: { slug: string; name: string; size?
 
 export const ServicesSection = () => {
   const ref = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: '-100px'
@@ -142,11 +143,42 @@ export const ServicesSection = () => {
   const { content } = useContent();
   const s = content.services;
 
+  // Handle mouse wheel to scroll horizontally through cards
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      const atStart = scrollLeft <= 0;
+      const atEnd = scrollLeft + clientWidth >= scrollWidth - 2;
+
+      // If scrolling down and not at the end, or scrolling up and not at the start
+      if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
+        e.preventDefault();
+        container.scrollBy({ left: e.deltaY * 2, behavior: 'smooth' });
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    return () => container.removeEventListener('wheel', handleWheel);
+  }, []);
+
+  // Build all 7 cards data
+  const allCards = [
+    ...s.services.map((service, index) => ({
+      type: 'service' as const,
+      service,
+      index,
+    })),
+    { type: 'tools' as const, index: s.services.length },
+  ];
+
   return (
-    <section id="services" className="relative py-20 bg-secondary/10 md:py-0">
+    <section id="services" className="relative bg-secondary/10">
       <SectionBackground variant="waves" />
-      <div className="section-container py-[40px] pb-0 relative z-10" ref={ref}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-16">
+      <div className="relative z-10 py-[40px] pb-0" ref={ref}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-12 px-4">
           <span className="text-sm font-medium tracking-wider uppercase text-primary">{s.label}</span>
           <h2 className="section-title mt-2 inline-flex items-center justify-center w-full gap-3">
             <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="p-3 rounded-xl bg-card border border-border shadow-lg">
@@ -157,65 +189,92 @@ export const ServicesSection = () => {
           <p className="section-subtitle mx-auto mt-4">{s.subtitle}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {s.services.map((service, index) => {
-            const Icon = serviceIcons[index % serviceIcons.length];
-            const tools = serviceToolLogos[index] || [];
-            return (
-              <motion.div key={index} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10 flex-1">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-7 h-7 text-primary" />
+        {/* Horizontal scroll carousel */}
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-[calc(50vw-180px)] pb-10 scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {allCards.map((card, i) => {
+            if (card.type === 'service') {
+              const Icon = serviceIcons[card.index % serviceIcons.length];
+              const tools = serviceToolLogos[card.index] || [];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                  className="group snap-center shrink-0 w-[360px] p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative z-10 flex-1">
+                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{card.service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{card.service.description}</p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                </div>
-                {tools.length > 0 && (
-                  <div className="relative z-10 mt-5">
-                    <Separator className="mb-4 opacity-50" />
-                    <div className="flex items-center gap-3">
-                      {tools.map((tool) => (
-                        <ToolLogo key={tool.slug + index} slug={tool.slug} name={tool.name} size={24} />
-                      ))}
+                  {tools.length > 0 && (
+                    <div className="relative z-10 mt-5">
+                      <Separator className="mb-4 opacity-50" />
+                      <div className="flex items-center gap-3">
+                        {tools.map((tool) => (
+                          <ToolLogo key={tool.slug + i} slug={tool.slug} name={tool.name} size={24} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            }
+
+            // Tools & Technologies card
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                className="group snap-center shrink-0 w-[360px] p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <Sparkles className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">Tools & Technologies</h3>
+                  <p className="text-muted-foreground leading-relaxed">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
+                  <div className="mt-5 space-y-4">
+                    <div>
+                      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">AI Tools</span>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {aiDesignTools.ai.map((tool) => (
+                          <ToolLogo key={tool.slug} slug={tool.slug} name={tool.name} size={28} />
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">Design & Creative</span>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {aiDesignTools.design.map((tool) => (
+                          <ToolLogo key={tool.slug} slug={tool.slug} name={tool.name} size={28} />
+                        ))}
+                      </div>
                     </div>
                   </div>
-                )}
+                </div>
               </motion.div>
             );
           })}
-
-          {/* Tools & Technologies Card - aligned with middle column */}
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.1 + s.services.length * 0.1 }} className="group p-6 md:p-8 rounded-2xl bg-card border border-border card-hover relative overflow-hidden flex flex-col lg:col-start-2">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <Sparkles className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">Tools & Technologies</h3>
-              <p className="text-muted-foreground leading-relaxed">Leveraging cutting-edge AI and creative platforms to deliver exceptional results.</p>
-              <div className="mt-5 space-y-4">
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">AI Tools</span>
-                  <div className="flex items-center gap-3 flex-wrap">
-                    {aiDesignTools.ai.map((tool) => (
-                      <ToolLogo key={tool.slug} slug={tool.slug} name={tool.name} size={28} />
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-2 block">Design & Creative</span>
-                  <div className="flex items-center gap-3 flex-wrap">
-                    {aiDesignTools.design.map((tool) => (
-                      <ToolLogo key={tool.slug} slug={tool.slug} name={tool.name} size={28} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
+        {/* Scroll indicator dots */}
+        <div className="flex justify-center gap-2 pb-6">
+          {allCards.map((_, i) => (
+            <div key={i} className="w-2 h-2 rounded-full bg-primary/30" />
+          ))}
+        </div>
       </div>
       <ScrollDivider />
     </section>
