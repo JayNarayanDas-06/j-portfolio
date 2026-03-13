@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, MapPin, Send, Loader2, CheckCircle, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Loader2, CheckCircle, MessageCircle, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -86,7 +86,7 @@ export const ContactSection = () => {
         } : {}} transition={{
           duration: 0.5,
           delay: 0.2
-        }} className="lg:col-span-2 space-y-6">
+        }} className="lg:col-span-2 space-y-6 flex flex-col">
             <div className="p-6 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -111,9 +111,18 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/25 border border-primary/30">
-              <p className="text-sm text-muted-foreground mb-2">{c.ctaLine1}</p>
-              <p className="font-medium">{c.ctaLine2}</p>
+            <div className="flex-1" />
+
+            <div className="p-6 rounded-xl bg-card border border-border">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">{c.ctaLine1}</p>
+                  <p className="font-medium">{c.ctaLine2}</p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
