@@ -172,7 +172,7 @@ export const HeroSection = () => {
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 1
-            }} className="absolute bottom-1/4 -right-6 md:-right-8 lg:-right-10 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute z-20 bottom-1/4 -right-6 md:-right-8 lg:-right-10 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <Sparkles className="w-6 h-6 text-blue-400" />
               </motion.div>
             </div>
