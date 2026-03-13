@@ -120,7 +120,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{c.ctaLine1}</p>
-                  <p className="font-medium">{c.ctaLine2}</p>
+                  <p className="font-medium text-primary">{c.ctaLine2}</p>
                 </div>
               </div>
             </div>
