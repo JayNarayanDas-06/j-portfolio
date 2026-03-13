@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, MapPin, Send, Loader2, CheckCircle, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Send, Loader2, CheckCircle, MessageCircle, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
