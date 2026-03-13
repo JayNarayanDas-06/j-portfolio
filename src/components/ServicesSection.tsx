@@ -281,8 +281,8 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* 3D Carousel */}
-        <div className="relative w-full overflow-hidden" style={{ height: 320 }}>
-          <div className="relative w-full h-[300px] md:h-[340px]">
+        <div className="relative w-full overflow-hidden" style={{ height: 360 }}>
+          <div className="relative w-full h-[300px] md:h-[340px]" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)' }}>
             {s.services.map((service, i) => renderServiceCard(service, i))}
             {renderToolsCard()}
           </div>
