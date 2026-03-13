@@ -25,7 +25,6 @@ export const PortfolioSection = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [flipDirection, setFlipDirection] = useState(1);
   const [isFlipping, setIsFlipping] = useState(false);
 
   const project = projects[activeProject];
@@ -33,23 +32,23 @@ export const PortfolioSection = () => {
 
   const handleProjectChange = (index: number) => {
     if (index === activeProject || isFlipping) return;
-    setFlipDirection(index > activeProject ? 1 : -1);
+
     setIsFlipping(true);
-    setTimeout(() => {
-      setActiveProject(index);
-      setShowPreview(false);
-      setCurrentSlide(0);
-      setTimeout(() => setIsFlipping(false), 400);
-    }, 300);
+    setActiveProject(index);
+    setShowPreview(false);
+    setCurrentSlide(0);
+
+    window.setTimeout(() => setIsFlipping(false), 550);
   };
 
   const handleTogglePreview = () => {
+    if (isFlipping) return;
+
     setIsFlipping(true);
-    setTimeout(() => {
-      setShowPreview(!showPreview);
-      setCurrentSlide(0);
-      setTimeout(() => setIsFlipping(false), 400);
-    }, 300);
+    setShowPreview((prev) => !prev);
+    setCurrentSlide(0);
+
+    window.setTimeout(() => setIsFlipping(false), 550);
   };
 
   useEffect(() => {
