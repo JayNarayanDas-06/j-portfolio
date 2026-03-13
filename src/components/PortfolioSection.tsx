@@ -154,7 +154,7 @@ export const PortfolioSection = () => {
 
             {/* Calendar Bottom - Content Page (like date number) */}
             <div className="relative perspective-[1200px] min-h-[200px]">
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="sync">
                 <motion.div
                   key={`${activeProject}-${showPreview ? 'preview' : 'study'}`}
                   initial={{ rotateX: -90, opacity: 0, transformOrigin: 'top center' }}
