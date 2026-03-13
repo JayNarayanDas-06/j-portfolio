@@ -152,26 +152,25 @@ export const ServicesSection = () => {
     return (
       <div
         key={index}
-        className="absolute top-0 left-1/2 -ml-[180px] w-[360px] cursor-pointer transition-all duration-500 ease-out"
+        className="absolute top-0 left-1/2 -ml-[140px] md:-ml-[170px] w-[280px] md:w-[340px] cursor-pointer transition-all duration-500 ease-out"
         style={getCardStyle(index)}
         onClick={() => goTo(index)}
       >
-        <div className={`group p-6 md:p-8 rounded-2xl bg-card border border-border relative overflow-hidden flex flex-col h-[380px] transition-shadow duration-500 ${isActive ? 'shadow-2xl shadow-primary/20 border-primary/30' : 'shadow-lg'}`}>
-          {/* Reflection effect */}
+        <div className={`group p-4 md:p-6 rounded-2xl bg-card border border-border relative overflow-hidden flex flex-col h-[300px] md:h-[340px] transition-shadow duration-500 ${isActive ? 'shadow-2xl shadow-primary/20 border-primary/30' : 'shadow-lg'}`}>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative z-10 flex-1">
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-              <Icon className="w-7 h-7 text-primary" />
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+            <h3 className="text-base md:text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+            <p className="text-muted-foreground leading-relaxed text-xs md:text-sm">{service.description}</p>
           </div>
           {tools.length > 0 && (
-            <div className="relative z-10 mt-5">
-              <Separator className="mb-4 opacity-50" />
-              <div className="flex items-center gap-3">
+            <div className="relative z-10 mt-3">
+              <Separator className="mb-3 opacity-50" />
+              <div className="flex items-center gap-2">
                 {tools.map((tool) => (
-                  <ToolLogo key={tool.slug + index} slug={tool.slug} name={tool.name} size={24} />
+                  <ToolLogo key={tool.slug + index} slug={tool.slug} name={tool.name} size={20} />
                 ))}
               </div>
             </div>
