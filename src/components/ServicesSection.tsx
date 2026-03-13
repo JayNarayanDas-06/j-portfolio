@@ -87,6 +87,50 @@ export const ServicesSection = () => {
   const goNext = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);
   const goPrev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
 
+  // Touch handler for mobile swipe
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isSwiping = false;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const deltaX = e.touches[0].clientX - touchStartX;
+      const deltaY = e.touches[0].clientY - touchStartY;
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+        isSwiping = true;
+        e.preventDefault();
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!isSwiping) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      if (deltaX < -40) {
+        setActiveIndex(prev => Math.min(prev + 1, totalCards - 1));
+      } else if (deltaX > 40) {
+        setActiveIndex(prev => Math.max(prev - 1, 0));
+      }
+    };
+
+    section.addEventListener('touchstart', handleTouchStart, { passive: true });
+    section.addEventListener('touchmove', handleTouchMove, { passive: false });
+    section.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      section.removeEventListener('touchstart', handleTouchStart);
+      section.removeEventListener('touchmove', handleTouchMove);
+      section.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [totalCards]);
+
   // Wheel handler: hijack scroll to navigate cards, release at boundaries
   useEffect(() => {
     const section = sectionRef.current;
@@ -98,7 +142,6 @@ export const ServicesSection = () => {
     const handleWheel = (e: WheelEvent) => {
       const now = Date.now();
       if (now - lastWheelTime < THROTTLE) {
-        // Still within throttle window — prevent default to avoid page scroll
         e.preventDefault();
         return;
       }
@@ -115,7 +158,6 @@ export const ServicesSection = () => {
         lastWheelTime = now;
         setActiveIndex(prev => Math.max(prev - 1, 0));
       }
-      // At boundaries, let the event pass through for natural page scroll
     };
 
     section.addEventListener('wheel', handleWheel, { passive: false });
@@ -127,12 +169,12 @@ export const ServicesSection = () => {
     const offset = index - activeIndex;
     const absOffset = Math.abs(offset);
 
-    // Cards beyond 3 positions away are hidden
     if (absOffset > 3) return { display: 'none' as const };
 
-    const rotateY = offset * -35;
-    const translateX = offset * 280;
-    const translateZ = -absOffset * 150;
+    const isMobile = window.innerWidth < 768;
+    const rotateY = isMobile ? 0 : offset * -35;
+    const translateX = isMobile ? offset * 110 : offset * 280;
+    const translateZ = isMobile ? -absOffset * 60 : -absOffset * 150;
     const scale = 1 - absOffset * 0.12;
     const opacity = 1 - absOffset * 0.25;
 
