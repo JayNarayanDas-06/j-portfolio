@@ -152,7 +152,7 @@ export const HeroSection = () => {
               duration: 3,
               repeat: Infinity,
               ease: 'easeInOut'
-            }} className="absolute -top-4 right-10 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute -top-4 right-10 lg:-top-8 lg:right-0 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <TrendingUp className="w-6 h-6 lg:w-7 lg:h-7 text-blue-400" />
               </motion.div>
               <motion.div animate={{
