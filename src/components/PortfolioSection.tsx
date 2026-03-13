@@ -123,7 +123,7 @@ export const PortfolioSection = () => {
             <div className="relative z-10 rounded-t-2xl bg-primary overflow-hidden pt-4">
               <div className="px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary-foreground/20 flex items-center justify-center overflow-hidden">
+                  <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center overflow-hidden">
                     <img src={projectIcons[project.icon] || auditfilingFavicon} alt={project.title} className="w-7 h-7 object-contain" />
                   </div>
                   <div>
@@ -131,11 +131,25 @@ export const PortfolioSection = () => {
                     <h3 className="text-lg md:text-xl font-bold text-primary-foreground">{project.title.split('–')[0].split('Website')[0].trim()}</h3>
                   </div>
                 </div>
-                {project.websiteUrl && (
-                  <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
-                    <ExternalLink className="w-4 h-4 text-primary-foreground" />
-                  </a>
-                )}
+                <div className="flex items-center gap-2">
+                  {images.length > 0 && !showPreview && (
+                    <button onClick={handleTogglePreview} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-xs font-medium text-primary-foreground">
+                      Project Preview
+                      <Image className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                  {showPreview && (
+                    <button onClick={handleTogglePreview} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-xs font-medium text-primary-foreground">
+                      Case Study
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                  {project.websiteUrl && (
+                    <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+                      <ExternalLink className="w-4 h-4 text-primary-foreground" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -193,39 +207,10 @@ export const PortfolioSection = () => {
                         ))}
                       </div>
 
-                      {/* Preview Button */}
-                      {images.length > 0 && (
-                        <div className="flex justify-center">
-                          <Button
-                            variant="outline"
-                            className="rounded-full gap-2"
-                            onClick={handleTogglePreview}
-                          >
-                            Project Preview
-                            <Image className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      )}
                     </div>
                   ) : (
                     /* Preview Page - Logo minimized + Image gallery */
                     <div className="p-6 md:p-8">
-                      {/* Minimized project info */}
-                      <div className="flex items-center justify-between mb-5">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden border border-border">
-                            <img src={projectIcons[project.icon] || auditfilingFavicon} alt={project.title} className="w-7 h-7 object-contain" />
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-semibold">{project.title.split('–')[0].split('Website')[0].trim()}</h4>
-                            <span className="text-xs text-muted-foreground">Project Preview</span>
-                          </div>
-                        </div>
-                        <Button variant="outline" size="sm" className="rounded-full gap-2" onClick={handleTogglePreview}>
-                          Case Study
-                          <ChevronLeft className="w-4 h-4" />
-                        </Button>
-                      </div>
 
                       {/* Image Gallery */}
                       <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
@@ -261,9 +246,12 @@ export const PortfolioSection = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Stacked pages effect behind */}
-              <div className="absolute bottom-0 left-2 right-2 h-2 rounded-b-2xl bg-card/60 border border-t-0 border-border -z-10" />
-              <div className="absolute bottom-0 left-4 right-4 h-1 rounded-b-2xl bg-card/30 border border-t-0 border-border -z-20" />
+            </div>
+
+            {/* Stacked pages effect - outside animation container */}
+            <div className="relative -mt-0.5">
+              <div className="mx-2 h-2 rounded-b-2xl bg-card/60 border border-t-0 border-border" />
+              <div className="mx-4 h-1 rounded-b-2xl bg-card/30 border border-t-0 border-border -mt-0.5" />
             </div>
           </div>
         </motion.div>
