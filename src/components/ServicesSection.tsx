@@ -239,8 +239,8 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* 3D Carousel */}
-        <div className="relative w-full overflow-hidden" style={{ height: 400 }}>
-          <div className="relative w-full h-[380px]">
+        <div className="relative w-full overflow-hidden" style={{ height: 320 }}>
+          <div className="relative w-full h-[300px] md:h-[340px]">
             {s.services.map((service, i) => renderServiceCard(service, i))}
             {renderToolsCard()}
           </div>
