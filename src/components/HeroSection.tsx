@@ -152,7 +152,7 @@ export const HeroSection = () => {
               duration: 3,
               repeat: Infinity,
               ease: 'easeInOut'
-            }} className="absolute -top-10 right-8 lg:-top-12 lg:right-4 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute top-2 -right-2 md:top-0 md:-right-4 lg:-top-2 lg:-right-6 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <TrendingUp className="w-6 h-6 lg:w-7 lg:h-7 text-blue-400" />
               </motion.div>
               <motion.div animate={{
@@ -162,7 +162,7 @@ export const HeroSection = () => {
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 0.5
-            }} className="absolute top-1/4 -left-10 lg:-left-16 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute top-1/3 -left-6 md:-left-8 lg:-left-10 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <Target className="w-6 h-6 text-blue-400" />
               </motion.div>
               <motion.div animate={{
@@ -172,7 +172,7 @@ export const HeroSection = () => {
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 1
-            }} className="absolute bottom-4 -right-10 lg:-right-16 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute bottom-1/4 -right-6 md:-right-8 lg:-right-10 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <Sparkles className="w-6 h-6 text-blue-400" />
               </motion.div>
             </div>
