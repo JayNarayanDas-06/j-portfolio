@@ -207,19 +207,6 @@ export const PortfolioSection = () => {
                         ))}
                       </div>
 
-                      {/* Preview Button */}
-                      {images.length > 0 && (
-                        <div className="flex justify-center">
-                          <Button
-                            variant="outline"
-                            className="rounded-full gap-2"
-                            onClick={handleTogglePreview}
-                          >
-                            Project Preview
-                            <Image className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      )}
                     </div>
                   ) : (
                     /* Preview Page - Logo minimized + Image gallery */
