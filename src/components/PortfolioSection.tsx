@@ -25,6 +25,7 @@ export const PortfolioSection = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [flipDirection, setFlipDirection] = useState(1);
   const [isFlipping, setIsFlipping] = useState(false);
 
   const project = projects[activeProject];
@@ -32,23 +33,23 @@ export const PortfolioSection = () => {
 
   const handleProjectChange = (index: number) => {
     if (index === activeProject || isFlipping) return;
-
+    setFlipDirection(index > activeProject ? 1 : -1);
     setIsFlipping(true);
-    setActiveProject(index);
-    setShowPreview(false);
-    setCurrentSlide(0);
-
-    window.setTimeout(() => setIsFlipping(false), 550);
+    setTimeout(() => {
+      setActiveProject(index);
+      setShowPreview(false);
+      setCurrentSlide(0);
+      setTimeout(() => setIsFlipping(false), 400);
+    }, 300);
   };
 
   const handleTogglePreview = () => {
-    if (isFlipping) return;
-
     setIsFlipping(true);
-    setShowPreview((prev) => !prev);
-    setCurrentSlide(0);
-
-    window.setTimeout(() => setIsFlipping(false), 550);
+    setTimeout(() => {
+      setShowPreview(!showPreview);
+      setCurrentSlide(0);
+      setTimeout(() => setIsFlipping(false), 400);
+    }, 300);
   };
 
   useEffect(() => {
@@ -154,7 +155,7 @@ export const PortfolioSection = () => {
 
             {/* Calendar Bottom - Content Page (like date number) */}
             <div className="relative perspective-[1200px] min-h-[200px]">
-              <AnimatePresence mode="sync">
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={`${activeProject}-${showPreview ? 'preview' : 'study'}`}
                   initial={{ rotateX: -90, opacity: 0, transformOrigin: 'top center' }}
