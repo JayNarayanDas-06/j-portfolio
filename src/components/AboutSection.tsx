@@ -51,13 +51,15 @@ export const AboutSection = () => {
         } : {}} transition={{
           duration: 0.5,
           delay: 0.2
-        }}>
+        }} className="flex flex-col">
             <h3 className="text-2xl font-semibold mb-6">
               {a.heading} <span className="text-ring">{a.headingHighlight}</span> {a.headingSuffix}
             </h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               {a.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
             </div>
+
+            <div className="flex-1" />
 
             <div className="grid grid-cols-2 gap-4 mt-8">
               {a.quickInfo.map((info, i) => <div key={info.label} className="p-4 rounded-xl bg-card border border-border">
