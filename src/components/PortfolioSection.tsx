@@ -246,9 +246,12 @@ export const PortfolioSection = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Stacked pages effect behind */}
-              <div className="absolute bottom-0 left-2 right-2 h-2 rounded-b-2xl bg-card/60 border border-t-0 border-border -z-10" />
-              <div className="absolute bottom-0 left-4 right-4 h-1 rounded-b-2xl bg-card/30 border border-t-0 border-border -z-20" />
+            </div>
+
+            {/* Stacked pages effect - outside animation container */}
+            <div className="relative -mt-0.5">
+              <div className="mx-2 h-2 rounded-b-2xl bg-card/60 border border-t-0 border-border" />
+              <div className="mx-4 h-1 rounded-b-2xl bg-card/30 border border-t-0 border-border -mt-0.5" />
             </div>
           </div>
         </motion.div>
