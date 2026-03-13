@@ -162,7 +162,7 @@ export const HeroSection = () => {
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 0.5
-            }} className="absolute top-1/3 -left-6 md:-left-8 lg:-left-10 p-3 rounded-xl bg-card border border-border shadow-lg">
+            }} className="absolute z-20 top-1/3 -left-6 md:-left-8 lg:-left-10 p-3 rounded-xl bg-card border border-border shadow-lg">
                 <Target className="w-6 h-6 text-blue-400" />
               </motion.div>
               <motion.div animate={{
