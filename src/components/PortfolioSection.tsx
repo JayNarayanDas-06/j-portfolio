@@ -211,22 +211,6 @@ export const PortfolioSection = () => {
                   ) : (
                     /* Preview Page - Logo minimized + Image gallery */
                     <div className="p-6 md:p-8">
-                      {/* Minimized project info */}
-                      <div className="flex items-center justify-between mb-5">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden border border-border">
-                            <img src={projectIcons[project.icon] || auditfilingFavicon} alt={project.title} className="w-7 h-7 object-contain" />
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-semibold">{project.title.split('–')[0].split('Website')[0].trim()}</h4>
-                            <span className="text-xs text-muted-foreground">Project Preview</span>
-                          </div>
-                        </div>
-                        <Button variant="outline" size="sm" className="rounded-full gap-2" onClick={handleTogglePreview}>
-                          Case Study
-                          <ChevronLeft className="w-4 h-4" />
-                        </Button>
-                      </div>
 
                       {/* Image Gallery */}
                       <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-video">
