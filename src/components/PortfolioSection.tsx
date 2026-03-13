@@ -144,11 +144,6 @@ export const PortfolioSection = () => {
                       <ChevronLeft className="w-3.5 h-3.5" />
                     </button>
                   )}
-                  {project.websiteUrl && (
-                    <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
-                      <ExternalLink className="w-4 h-4 text-primary-foreground" />
-                    </a>
-                  )}
                 </div>
               </div>
             </div>
