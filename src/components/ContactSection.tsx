@@ -149,7 +149,7 @@ export const ContactSection = () => {
               </div>
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">{formLabels.subject}</label>
-                <Input id="subject" name="subject" placeholder={formLabels.subjectPlaceholder} required className="bg-secondary/50" />
+                <Input id="subject" name="subject" placeholder={formLabels.subjectPlaceholder} required />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">{formLabels.message}</label>
