@@ -140,7 +140,7 @@ export const ContactSection = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">{formLabels.name}</label>
-                  <Input id="name" name="name" placeholder={formLabels.namePlaceholder} required className="bg-secondary/50" />
+                  <Input id="name" name="name" placeholder={formLabels.namePlaceholder} required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">{formLabels.email}</label>
