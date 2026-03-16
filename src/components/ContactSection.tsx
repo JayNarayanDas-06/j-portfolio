@@ -140,20 +140,20 @@ export const ContactSection = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">{formLabels.name}</label>
-                  <Input id="name" name="name" placeholder={formLabels.namePlaceholder} required className="bg-secondary/50" />
+                  <Input id="name" name="name" placeholder={formLabels.namePlaceholder} required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">{formLabels.email}</label>
-                  <Input id="email" name="email" type="email" placeholder={formLabels.emailPlaceholder} required className="bg-secondary/50" />
+                  <Input id="email" name="email" type="email" placeholder={formLabels.emailPlaceholder} required />
                 </div>
               </div>
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">{formLabels.subject}</label>
-                <Input id="subject" name="subject" placeholder={formLabels.subjectPlaceholder} required className="bg-secondary/50" />
+                <Input id="subject" name="subject" placeholder={formLabels.subjectPlaceholder} required />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">{formLabels.message}</label>
-                <Textarea id="message" name="message" placeholder={formLabels.messagePlaceholder} rows={5} required className="bg-secondary/50 resize-none" />
+                <Textarea id="message" name="message" placeholder={formLabels.messagePlaceholder} rows={5} required className="resize-none" />
               </div>
               <Button type="submit" size="lg" className="w-full rounded-full gap-2" disabled={isSubmitting || isSubmitted}>
                 {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" />{formLabels.submittingButton}</> : isSubmitted ? <><CheckCircle className="w-4 h-4" />{formLabels.submittedButton}</> : <><Send className="w-4 h-4" />{formLabels.submitButton}</>}
