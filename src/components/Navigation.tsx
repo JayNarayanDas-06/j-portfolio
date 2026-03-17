@@ -97,13 +97,13 @@ import xIcon from '@/assets/x-icon.ico';
              {/* CTA Button */}
               <div className="hidden md:flex items-center gap-2">
                   <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                    <LinkedInIcon />
+                    <img src={linkedinIcon} alt="LinkedIn" className="w-4 h-4 rounded-sm" />
                   </a>
                   <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                    <InstagramIcon />
+                    <img src={instagramIcon} alt="Instagram" className="w-4 h-4" />
                   </a>
                   <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                    <XIcon />
+                    <img src={xIcon} alt="X" className="w-4 h-4" />
                   </a>
               </div>
  
