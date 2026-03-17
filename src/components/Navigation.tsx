@@ -163,15 +163,15 @@ const XIcon = () => (
                    </motion.a>
                  ))}
                   <div className="flex items-center gap-3 mt-4">
-                     <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                       <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5 rounded-sm" />
-                     </a>
-                     <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                       <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
-                     </a>
-                     <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
-                       <img src={xIcon} alt="X" className="w-5 h-5" />
-                     </a>
+                      <a href="https://www.linkedin.com/in/jay-narayan-das-1b99b4208/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                        <LinkedInIcon />
+                      </a>
+                      <a href="https://www.instagram.com/situndas_official_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                        <InstagramIcon />
+                      </a>
+                      <a href="https://x.com/situn_das_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:scale-110 transition-transform">
+                        <XIcon />
+                      </a>
                   </div>
                </div>
              </div>
