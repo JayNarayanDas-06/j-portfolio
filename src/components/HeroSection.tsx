@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, TrendingUp, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useContent } from '@/contexts/ContentContext';
-import profileWebp from '@/assets/jay-profile-new.webp';
+import profileWebp from '@/assets/jay-profile-512.webp';
 export const HeroSection = () => {
   const {
     content
